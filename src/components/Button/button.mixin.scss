@@ -1,0 +1,23 @@
+@mixin button-variant(
+  $parent,
+  $background,
+  $backgroundHover: darken($background, 10%)
+) {
+  &#{$parent} {
+    background-color: $background !important;
+    color: colorFromBackground($background) !important;
+    &:hover {
+      background-color: $backgroundHover !important;
+    }
+  }
+}
+@mixin button-outline-variant($parent, $background) {
+  &#{$parent} {
+    border-color: $background !important;
+    color: $background !important;
+    &:hover {
+      background-color: $background !important;
+      color: colorFromBackground($background) !important;
+    }
+  }
+}

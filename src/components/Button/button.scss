@@ -1,28 +1,21 @@
-/* .button {
+@import "../../styles/main";
+@import "./button.mixin";
+.dz-button {
+  /* Button reset sheet */
   border: none;
   margin: 0;
-  padding: 0;
+
   width: auto;
   overflow: visible;
   background: transparent;
   color: inherit;
-  font: inherit;
   line-height: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
   border-color: transparent;
-}
-.button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+  /* End reset styled*/
 
-.button:not(.icon-only) > i,
-.button:not(.icon-only) > svg {
-  padding-right: 0.3125rem;
-}
-.button {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   border-width: 0.125rem;
@@ -32,25 +25,46 @@
   font-family: "Lato", sans-serif;
   text-decoration: none;
   font-weight: bold;
-}
-.button-rounded {
-  border-radius: 0.375rem;
-}
-.button-small {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.625rem;
-}
-.button-large {
-  padding: 1rem 2rem;
-  font-size: 1.25rem;
-}
-.button,
-.button-outline,
-.button-link {
   cursor: pointer;
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  &:not(.dz-icon-only) i,
+  &:not(.dz-icon-only) svg {
+    padding-right: 0.3125rem;
+  }
+
+  &.dz-button-rounded {
+    border-radius: 0.375rem;
+  }
+
+  &.dz-button-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem;
+  }
+  &.dz-button-large {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+  }
+  &.dz-button-link {
+    color: $primary;
+    background-color: transparent;
+    border: none;
+    &:hover {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+  @each $color, $value in $theme-colors {
+    @include button-outline-variant(".dz-button-outline-#{$color}", $value);
+  }
+  @each $color, $value in $theme-colors {
+    @include button-variant(".dz-button-#{$color}", $value);
+  }
 }
 
-.button:not(.button-outline):not(.button-link) {
+/* .button:not(.button-outline):not(.button-link) {
   background-color: var(--blue-blue);
   color: var(--white);
 }
@@ -64,8 +78,8 @@
 .button-outline:hover {
   color: var(--white);
   background-color: #2170df;
-}
-.button-link {
+} */
+/* .button-link {
   background-color: transparent;
   border: none;
   color: var(--blue-blue);
@@ -110,5 +124,4 @@
 }
 .button-dark:hover {
   background-color: #3a4751 !important;
-}
- */
+} */

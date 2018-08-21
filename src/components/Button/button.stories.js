@@ -2,76 +2,103 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import Button from "./Button";
-
+const btnTypes = [
+  "primary",
+  "dark-blue",
+  "light-blue",
+  "muted",
+  "blue",
+  "dark",
+  "success",
+  "danger",
+  "warning",
+  "purple",
+  "white"
+];
 storiesOf("Button", module)
-  .add("Default", () => <Button onClick={action("clicked")}>Add Text</Button>)
+  .add("Default", () => (
+    <Button onClick={action("clicked")} className="dz-button-primary">
+      Add Text
+    </Button>
+  ))
   .add("Normal with icon", () => (
-    <Button href="" onClick={action("clicked")}>
+    <Button onClick={action("clicked")} className="dz-button-primary">
       <i className="fas fa-plus" />
       Add Text
     </Button>
   ))
   .add("Normal with only icon", () => (
-    <Button onClick={action("clicked")} className="icon-only">
+    <Button
+      onClick={action("clicked")}
+      className="dz-button-primary dz-icon-only"
+    >
       <i className="fas fa-plus" />
     </Button>
   ))
   .add("Outlined", () => (
-    <Button onClick={action("clicked")} className="button-outline">
+    <Button onClick={action("clicked")} className="dz-button-outline-primary">
       Add Outline
     </Button>
   ))
   .add("Outlined with icon", () => (
-    <Button onClick={action("clicked")} className="button-outline icon-only">
+    <Button
+      onClick={action("clicked")}
+      className="dz-button-outline-primary dz-icon-only"
+    >
       <i className="fas fa-plus" />
     </Button>
   ))
   .add("Text only", () => (
-    <Button onClick={action("clicked")} className="button-link">
+    <Button onClick={action("clicked")} className="dz-button-link">
       Go here
     </Button>
   ))
   .add("Icon only", () => (
-    <Button onClick={action("clicked")} className="button-link icon-only">
+    <Button onClick={action("clicked")} className="dz-button-link dz-icon-only">
       <i className="fas fa-plus" />
     </Button>
   ))
   .add("Rounded", () => (
-    <Button onClick={action("clicked")} className="button-rounded">
+    <Button
+      onClick={action("clicked")}
+      className="dz-button-primary dz-button-rounded"
+    >
       Go here
     </Button>
   ))
   .add("Different colors", () => (
     <div>
-      <Button href="" onClick={action("clicked")}>
-        Primary
-      </Button>
-      <Button onClick={action("clicked")} className="button-success">
-        Success
-      </Button>
-      <Button href="" onClick={action("clicked")} className="button-warning">
-        Warning
-      </Button>
-      <Button href="" onClick={action("clicked")} className="button-danger">
-        Danger
-      </Button>
-      <Button href="" onClick={action("clicked")} className="button-purple">
-        Purple
-      </Button>
-      <Button href="" onClick={action("clicked")} className="button-dark">
-        Dark
-      </Button>
+      {btnTypes.map(type => {
+        return (
+          <Button onClick={action("clicked")} className={`dz-button-${type}`}>
+            {type}
+          </Button>
+        );
+      })}
+      {btnTypes.map(type => {
+        return (
+          <Button onClick={action("clicked")} className={`dz-button-outline-${type}`}>
+            {type}
+          </Button>
+        );
+      })}
     </div>
   ))
   .add("Sizes", () => (
     <div>
-      <Button href="" onClick={action("clicked")} className="button-small">
+      <Button
+        onClick={action("clicked")}
+        className="dz-button-primary dz-button-small"
+      >
         Small
       </Button>
-      <Button href="" onClick={action("clicked")}>
+      <Button onClick={action("clicked")} className="dz-button-primary">
         Default
       </Button>
-      <Button href="" onClick={action("clicked")} className="button-large">
+      <Button
+        onClick={action("clicked")}
+        className="dz-button-primary dz-button-large"
+      >
         Large
       </Button>
     </div>
