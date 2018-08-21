@@ -15,7 +15,6 @@ class Button extends Component {
 
   render() {
     const { href, className, children } = this.props;
-    console.log(className);
     if (href) {
       return (
         <a href={href} className={cx("dz-button", className)}>
