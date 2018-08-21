@@ -36,7 +36,7 @@ storiesOf("Card", module)
     <Card>
       <CardHeader title="Header">
         <CardTools>
-          <Button className="button-success">Action</Button>
+          <Button className="dz-button-success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -46,7 +46,7 @@ storiesOf("Card", module)
     <Card>
       <CardHeader title="Header">
         <CardTools>
-          <Button className="button-success">Action</Button>
+          <Button className="dz-button-success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -62,7 +62,7 @@ storiesOf("Card", module)
     <Card className="dz-card-bordered dz-card-primary">
       <CardHeader title="Header">
         <CardTools>
-          <Button className="button-success">Action</Button>
+          <Button className="dz-button-success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -78,7 +78,7 @@ storiesOf("Card", module)
     <Card className="dz-card-filled dz-card-primary">
       <CardHeader title="Header">
         <CardTools>
-          <Button className="button-success">Action</Button>
+          <Button className="dz-button-success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
