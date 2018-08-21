@@ -1,0 +1,67 @@
+$background: #f0f0f1 !default;
+$dark-muted: #5a6872 !default;
+$brand-bitbucket: #205081 !default;
+$brand-github: #333 !default;
+
+$dark-blue: #394165 !default;
+$light-blue: #48bbff !default;
+$muted: #777 !default;
+$blue: #6480ff !default;
+$primary: #377ee2 !default;
+$dark: #414f5a !default;
+$success: #35c32a !default;
+$danger: #fb617f !default;
+$warning: #feb64d !default;
+$purple: #9661e2 !default;
+$white: #ffffff !default;
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+  (
+    "dark-blue": $dark-blue,
+    "light-blue": $light-blue,
+    "muted": $muted,
+    "blue": $blue,
+    "primary": $primary,
+    "dark": $dark,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "purple": $purple,
+    "white": $white
+  ),
+  $theme-colors
+);
+/* $theme-colors-comp: (()) !default;
+
+$theme-colors-comp: map-merge(
+  (
+      ("dark-blue", $dark-blue, $white)
+      ("light-blue", $light-blue, $white),
+      ("muted", $muted, $white),
+      ("blue", $blue, $white),
+      ("primary", $primary, $white),
+      ("dark", $dark, $white),
+      ("success", $dark, $white)
+  ),
+  $theme-colors-comp
+); */
+/* $comp-colors: () !default;
+$comp-colors: map-merge(
+  (
+    "dark-blue": $white,
+    "light-blue": $white,
+    "muted": $white,
+    "blue": $white,
+    "primary": $white,
+    "dark": $white,
+    "success": $white,
+    "danger": $white,
+    "warning": $white,
+    "purple": $white,
+    "white": $dark
+  ),
+  $comp-colors
+);
+ */

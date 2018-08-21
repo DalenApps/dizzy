@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
+import { addDecorator, configure } from "@storybook/react";
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
-import { withInfo } from '@storybook/addon-info';
-import { Button, Welcome } from '@storybook/react/demo';
+// Add a decorator to center all of our items.
+const styles = {
+  width: "800px",
+  margin: "auto",
+  marginTop: "20px",
+};
+const CenterDecorator = storyFn => <div style={styles}>{storyFn()}</div>;
+addDecorator(CenterDecorator);
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-
-storiesOf('Button', module)
-  .add('with text',() => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+//Load all stories from files with the .stories.js extension.
+const req = require.context("../components", true, /\.stories\.js$/);
+function loadStories() {
+  req.keys().forEach(filename => req(filename));
+}
+// Add our loaded stories.
+configure(loadStories, module);

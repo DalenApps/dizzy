@@ -1,0 +1,56 @@
+.dz-code-preview {
+  height: 25rem;
+  width: 18.75rem;
+
+  border-width: 0.125rem;
+  border-style: solid;
+  border-color: var(--blue-blue);
+  position: relative;
+  border-radius: 0.3125rem;
+  box-sizing: border-box;
+  background-color: var(--white);
+  font-size: small;
+}
+.dz-code-preview-footer {
+  min-height: 1.25rem;
+  background-color: var(--blue-blue);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-size: 0.75rem;
+  padding: 0.1875rem 0.625rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.dz-code-preview-footer-provider {
+  flex-grow: 1;
+}
+.dz-code-preview-footer-provider > svg {
+  margin-right: 5px;
+}
+.dz-code-preview.dz-code-source-bitbucket {
+  border-color: var(--brand-bitbucket);
+}
+.dz-code-preview.dz-code-source-github {
+  border-color: var(--brand-github);
+}
+.dz-code-source-bitbucket > .dz-code-preview-footer {
+  background-color: var(--brand-bitbucket);
+  color: var(--white);
+}
+
+.dz-code-source-github > .dz-code-preview-footer {
+  background-color: var(--brand-github);
+  color: var(--white);
+}
+.dz-code-preview > code {
+  padding: 0.625rem 0.625rem 1.875rem 0.625rem;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+}

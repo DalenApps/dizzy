@@ -1,0 +1,51 @@
+/* .badge {
+  border-radius: 5px;
+  font-size: small;
+  position: relative;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  background-color: var(--bg);
+}
+
+.badge:not(.badge-addon-left):not(.badge-addon-right) {
+  padding: 5px 10px;
+}
+
+.badge-addon-left:first-child {
+  left: 0;
+  margin-left: -10px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.badge-addon-right:first-child {
+  right: 0;
+  margin-right: -10px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.badge-dark,
+.badge-addon-dark {
+  background-color: var(--dark);
+  color: var(--white);
+}
+.badge-primary,
+.badge-addon-primary {
+  background-color: var(--blue-blue);
+  color: var(--white);
+}
+.badge-danger,
+.badge-addon-danger {
+  background-color: var(--danger);
+  color: var(--white);
+}
+.badge-success,
+.badge-addon-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+ */

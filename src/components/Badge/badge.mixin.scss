@@ -1,0 +1,8 @@
+
+@mixin badge-variant($parent, $background) {
+  &#{$parent},
+  #{$parent}-addon {
+    color: colorFromBackground($background);
+    background-color: $background !important;
+  }
+}

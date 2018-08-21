@@ -1,0 +1,114 @@
+.button {
+  /* Button reset sheet */
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  border-color: transparent;
+}
+.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.button:not(.icon-only) > i,
+.button:not(.icon-only) > svg {
+  padding-right: 0.3125rem;
+}
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-width: 0.125rem;
+  border-style: solid;
+  margin: 0.125rem;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+}
+.button-rounded {
+  border-radius: 0.375rem;
+}
+.button-small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.625rem;
+}
+.button-large {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
+.button,
+.button-outline,
+.button-link {
+  cursor: pointer;
+}
+
+.button:not(.button-outline):not(.button-link) {
+  background-color: var(--blue-blue);
+  color: var(--white);
+}
+.button:not(.button-outline):not(.button-link):hover {
+  background-color: #2170df;
+}
+.button-outline {
+  border-color: var(--blue-blue);
+  color: var(--blue-blue);
+}
+.button-outline:hover {
+  color: var(--white);
+  background-color: #2170df;
+}
+.button-link {
+  background-color: transparent;
+  border: none;
+  color: var(--blue-blue);
+}
+.button-link:hover {
+  color: #2170df;
+  text-decoration: underline;
+}
+.button-success {
+  background-color: var(--success) !important;
+  color: var(--white) !important;
+}
+.button-success:hover {
+  background-color: #2cac23 !important;
+}
+.button-danger {
+  background-color: var(--danger) !important;
+  color: var(--white) !important;
+}
+.button-danger:hover {
+  background-color: #cf3957 !important;
+}
+.button-warning {
+  background-color: var(--warning) !important;
+  color: var(--white) !important;
+}
+.button-warning:hover {
+  background-color: #f7a428 !important;
+}
+
+.button-purple {
+  background-color: var(--purple) !important;
+  color: var(--white) !important;
+}
+.button-purple:hover {
+  background-color: #8345dc !important;
+}
+
+.button-dark {
+  background-color: var(--dark) !important;
+  color: var(--white) !important;
+}
+.button-dark:hover {
+  background-color: #3a4751 !important;
+}

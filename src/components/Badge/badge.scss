@@ -1,0 +1,34 @@
+@import "../../styles/main";
+@import "./badge.mixin";
+
+.dz-badge {
+  border-radius: 0.3125rem;
+  font-size: small;
+  position: relative;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $background;
+  &:not(.dz-badge-addon-left):not(.dz-badge-addon-right) {
+    padding: 0.3125rem 0.625rem;
+  }
+  .badge-addon-left:first-child {
+    left: 0;
+    margin-left: -0.625rem;
+    padding: 5px 0.625rem;
+    margin-right: 0.625rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .badge-addon-right:first-child {
+    right: 0;
+    margin-right: -10px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  @each $color, $value in $theme-colors {
+    @include badge-variant(".dz-badge-#{$color}", $value);
+  }
+}
