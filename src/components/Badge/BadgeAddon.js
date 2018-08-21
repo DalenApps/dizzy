@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Badge.css";
+import "./badge.scss";
 import PropTypes from "prop-types";
 
 class BadgeAddon extends Component {
