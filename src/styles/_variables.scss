@@ -33,35 +33,3 @@ $theme-colors: map-merge(
   ),
   $theme-colors
 );
-/* $theme-colors-comp: (()) !default;
-
-$theme-colors-comp: map-merge(
-  (
-      ("dark-blue", $dark-blue, $white)
-      ("light-blue", $light-blue, $white),
-      ("muted", $muted, $white),
-      ("blue", $blue, $white),
-      ("primary", $primary, $white),
-      ("dark", $dark, $white),
-      ("success", $dark, $white)
-  ),
-  $theme-colors-comp
-); */
-/* $comp-colors: () !default;
-$comp-colors: map-merge(
-  (
-    "dark-blue": $white,
-    "light-blue": $white,
-    "muted": $white,
-    "blue": $white,
-    "primary": $white,
-    "dark": $white,
-    "success": $white,
-    "danger": $white,
-    "warning": $white,
-    "purple": $white,
-    "white": $dark
-  ),
-  $comp-colors
-);
- */
