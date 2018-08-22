@@ -1,5 +1,7 @@
 {
   "files.associations": {
     "*.js": "javascriptreact"
-  }
+  },
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true
 }
