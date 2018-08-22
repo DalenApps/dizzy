@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './InputGroup.css';
+import './input-group.scss';
 
 class InputGroup extends Component {
   static propTypes = {
@@ -16,14 +17,7 @@ class InputGroup extends Component {
 
   render() {
     const { className, children } = this.props;
-    return (
-      <div
-        className={`dz-input-group ${className ? className : ''}`}
-        style={{ backgroundColor: '#fff' }}
-      >
-        {children}
-      </div>
-    );
+    return <div className={cx('dz-input-group', className)}>{children}</div>;
   }
 }
 
