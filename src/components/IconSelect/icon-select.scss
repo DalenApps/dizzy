@@ -1,0 +1,51 @@
+@import "../../styles/main";
+.dz-icon-select-grid {
+  display: inline-flex;
+  flex-wrap: wrap;
+  .dz-icon-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    align-items: center;
+    padding: 0.75rem 0.375rem 0.6875rem;
+    width: 7.5rem;
+    overflow: hidden;
+    height: 5.625rem;
+    border: 0.125rem solid $dark;
+    color: $dark;
+    border-radius: 0.25rem;
+    transition: all 0.1s linear;
+    box-sizing: border-box;
+    margin: 0 1.125rem 0 0;
+    background-color: $white;
+  }
+  .dz-icon-select-grid {
+    .dz-icon-select:not(:last-of-type) {
+      margin: 0 1rem 1rem 0;
+    }
+  }
+  .dz-icon-select {
+    label {
+      font-size: 0.75rem;
+      white-space: nowrap;
+      text-align: center;
+      color: $dark;
+    }
+  }
+  .dz-icon-select {
+    svg {
+      font-size: 2rem;
+    }
+  }
+  .dz-icon-select.selected,
+  .dz-icon-select:hover {
+    border: 0.125rem solid $primary !important;
+    color: $primary !important;
+  }
+  .dz-icon-select:hover {
+    cursor: pointer;
+  }
+}

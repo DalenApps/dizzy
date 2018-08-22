@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './IconSelect.css';
+import './icon-select.scss';
 
 const IconSelectItem = ({ icon, label }) => (
   <div className="dz-icon-select">
