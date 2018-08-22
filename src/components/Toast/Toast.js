@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Toast.css';
+import './toast.scss';
 import cx from 'classnames';
 class Toast extends Component {
   static propTypes = {
