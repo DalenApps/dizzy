@@ -1,0 +1,57 @@
+@import '../../styles/main';
+.dz-paginator {
+  width: 100%;
+  background-color: $white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid $borders;
+
+  .dz-paginator-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .dz-paginator-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    height: 2.625rem;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+    margin-right: -1rem;
+  }
+
+  .dz-paginator-label {
+    font-size: 0.75rem;
+    color: $muted;
+    padding-right: 0.25rem;
+    display: block;
+  }
+
+  .dz-paginator-pagepicker {
+    color: $primary;
+    font-weight: bold;
+  }
+
+  .dz-paginator-button-back,
+  .dz-paginator-button-next {
+    border: none;
+    background: none;
+    cursor: pointer;
+    height: 2.5rem;
+    border-left: 0.0625rem solid $borders;
+  }
+
+  .dz-paginator-button-back {
+    margin: 0 1rem;
+    padding: 0 1rem;
+    border-right: 0.0625rem solid $borders;
+  }
+
+  .dz-paginator-button-next {
+    border-right: 0;
+    padding: 0 1rem;
+    margin-left: 1rem;
+  }
+}
