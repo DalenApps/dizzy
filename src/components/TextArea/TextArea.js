@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import './TextArea.css';
+import './text-area.scss';
 
 class TextArea extends Component {
   static propTypes = {
