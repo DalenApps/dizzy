@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './StatusBox.css';
+import './status-box.scss';
 
 class StatusBox extends Component {
   static propTypes = {
@@ -16,7 +17,7 @@ class StatusBox extends Component {
   render() {
     const { className, children } = this.props;
     return (
-      <div className={`dz-statusbox ${className ? className : ''}`}>
+      <div className={cx('dz-statusbox', className)}>
         <div className="dz-statusbox-icon">
           <i className="fas fa-plus fa-2x" />
         </div>
