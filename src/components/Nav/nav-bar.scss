@@ -1,0 +1,33 @@
+@import '../../styles/main';
+.dz-navbar {
+  background-color: $white;
+  color: $primary;
+  height: 3.875rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 3.875rem;
+  justify-content: space-between;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.26);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  &.dz-navbar-sticky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .dz-navbar-brand {
+    cursor: pointer;
+    padding: 0 1.875rem;
+    a {
+      text-decoration: none;
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+}

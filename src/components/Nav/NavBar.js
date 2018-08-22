@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './NavBar.css';
+import './nav-bar.scss';
 
 class NavBar extends Component {
   static propTypes = {
@@ -17,7 +18,7 @@ class NavBar extends Component {
   render() {
     const { children, className } = this.props;
     return (
-      <header className={`dz-navbar ${className ? className : ''}`}>
+      <header className={cx('dz-navbar', className)}>
         <div className="dz-navbar-brand">
           <a href="">Dizzy</a>
         </div>
