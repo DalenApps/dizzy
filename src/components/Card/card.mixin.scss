@@ -1,0 +1,16 @@
+@mixin card-bordered-variant($parent, $border) {
+  &#{$parent} {
+    .dz-card-header {
+      border-top: 3px solid $border;
+    }
+  }
+}
+
+@mixin card-filled-variant($parent, $background) {
+  &#{$parent} {
+    .dz-card-header {
+      background-color: $background;
+      color: colorFromBackground($background);
+    }
+  }
+}

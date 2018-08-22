@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Card.css';
+import './card.scss';
 import PropTypes from 'prop-types';
 class CardFooter extends Component {
   static propTypes = {

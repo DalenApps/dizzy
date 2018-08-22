@@ -1,0 +1,68 @@
+@import "../../styles/main";
+@import "./card.mixin";
+.dz-card {
+  box-shadow: 0rem 0rem 0.625rem rgba(69, 101, 173, 0.1);
+  position: relative;
+  min-height: 3.125rem;
+  border-radius: 0.25rem;
+  background-color: $white;
+
+  .dz-card-body {
+    padding: 1.25rem;
+    min-height: 1.875rem;
+  }
+
+  .dz-card-header,
+  .dz-card-footer {
+    box-sizing: border-box;
+    min-height: 2.5rem;
+    padding: 0.25rem 1.25rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dz-card-header {
+    justify-content: center;
+    margin-bottom: 0;
+    border-bottom: 0.0625rem solid $borders;
+    p {
+      margin: 0;
+    }
+    .dz-card-header-tools {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .button {
+        margin: 0;
+      }
+    }
+    .dz-card-header-title {
+      align-self: center;
+      flex-grow: 1;
+    }
+  }
+
+  .dz-card-footer {
+    border-top: 1px solid $borders;
+    justify-content: flex-end;
+  }
+
+  &.dz-card-bordered {
+    .dz-card-header {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    @each $color, $value in $theme-colors {
+      @include card-bordered-variant(".dz-card-#{$color}", $value);
+    }
+  }
+  &.dz-card-filled {
+    .dz-card-header {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    @each $color, $value in $theme-colors {
+      @include card-filled-variant(".dz-card-#{$color}", $value);
+    }
+  }
+}

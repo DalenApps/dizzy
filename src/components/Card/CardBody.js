@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Card.css';
+import './card.scss';
 class CardBody extends Component {
   static propTypes = {
     className: PropTypes.string,
