@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './CodePreview.css';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
+import './code-preview.scss';
 
 class CodePreview extends Component {
   static propTypes = {
@@ -48,9 +49,7 @@ class CodePreview extends Component {
     const { className, children } = this.props;
     return (
       <div
-        className={`dz-code-preview ${this.getProviderClass()} ${
-          className ? className : ''
-        }`}
+        className={cx('dz-code-preview', this.getProviderClass(), className)}
       >
         {children}
         {this.getFooter()}
