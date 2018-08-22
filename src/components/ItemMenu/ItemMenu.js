@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './ItemMenu.css';
+import './item-menu.scss';
 class ItemMenu extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -11,11 +12,7 @@ class ItemMenu extends Component {
   };
   render() {
     const { className, children } = this.props;
-    return (
-      <div className={`dz-item-menu ${className ? className : ''}`}>
-        {children}
-      </div>
-    );
+    return <div className={cx('dz-item-menu', className)}>{children}</div>;
   }
 }
 
