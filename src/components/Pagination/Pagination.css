@@ -7,10 +7,12 @@
   border: 1px solid #dfe3e6;
   /* height: 2.5rem; */
 }
+
 .dz-paginator-left {
   display: flex;
   align-items: center;
 }
+
 .dz-paginator-right {
   display: flex;
   align-items: center;
@@ -20,16 +22,19 @@
   margin-bottom: -0.5rem;
   margin-right: -1rem;
 }
+
 .dz-paginator-label {
   font-size: 12px;
   color: var(--muted);
   padding-right: 4px;
   display: block;
 }
+
 .dz-paginator-pagepicker {
   color: var(--blue-blue);
   font-weight: bold;
 }
+
 .dz-paginator-button-back,
 .dz-paginator-button-next {
   border: none;
@@ -38,11 +43,13 @@
   height: 2.5rem;
   border-left: 1px solid #dfe3e6;
 }
+
 .dz-paginator-button-back {
   margin: 0 1rem;
   padding: 0 1rem;
   border-right: 1px solid #dfe3e6;
 }
+
 .dz-paginator-button-next {
   border-right: 0;
   padding: 0 1rem;

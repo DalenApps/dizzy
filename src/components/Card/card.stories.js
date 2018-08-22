@@ -1,13 +1,7 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import {
-  Card,
-  CardHeader,
-  CardTools,
-  CardFooter,
-  CardBody
-} from "./";
-import Button from "../Button/Button";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { Card, CardHeader, CardTools, CardFooter, CardBody } from './';
+import Button from '../Button/Button';
 const demoBody = (
   <CardBody>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus risus
@@ -24,15 +18,15 @@ const demoBody = (
     Aliquam eleifend turpis nulla, non imperdiet nibh rhoncus non.
   </CardBody>
 );
-storiesOf("Card", module)
-  .add("Default", () => <Card>{demoBody}</Card>)
-  .add("With header", () => (
+storiesOf('Card', module)
+  .add('Default', () => <Card>{demoBody}</Card>)
+  .add('With header', () => (
     <Card>
       <CardHeader title="Header" />
       {demoBody}
     </Card>
   ))
-  .add("With header tools", () => (
+  .add('With header tools', () => (
     <Card>
       <CardHeader title="Header">
         <CardTools>
@@ -42,7 +36,7 @@ storiesOf("Card", module)
       {demoBody}
     </Card>
   ))
-  .add("With footer", () => (
+  .add('With footer', () => (
     <Card>
       <CardHeader title="Header">
         <CardTools>
@@ -58,7 +52,7 @@ storiesOf("Card", module)
       </CardFooter>
     </Card>
   ))
-  .add("With colored top", () => (
+  .add('With colored top', () => (
     <Card className="dz-card-bordered dz-card-primary">
       <CardHeader title="Header">
         <CardTools>
@@ -74,7 +68,7 @@ storiesOf("Card", module)
       </CardFooter>
     </Card>
   ))
-  .add("Filled header", () => (
+  .add('Filled header', () => (
     <Card className="dz-card-filled dz-card-primary">
       <CardHeader title="Header">
         <CardTools>

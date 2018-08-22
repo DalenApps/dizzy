@@ -1,6 +1,5 @@
 @import "../../styles/main";
 @import "./badge.mixin";
-
 .dz-badge {
   border-radius: 0.3125rem;
   font-size: small;
@@ -29,7 +28,8 @@
     border-top-right-radius: 0.3125rem;
     border-bottom-right-radius: 0.3125rem;
   }
-  @each $color, $value in $theme-colors {
+  @each $color,
+  $value in $theme-colors {
     @include badge-variant(".dz-badge-#{$color}", $value);
   }
 }

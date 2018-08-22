@@ -1,9 +1,9 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import CodePreview from "./CodePreview/CodePreview";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import CodePreview from './CodePreview/CodePreview';
 
 const Code = () => (
-  <pre>{` 
+  <pre>{`
   .dz-code-preview-footer {
     min-height: 20px;
     background-color: var(--blue-blue);
@@ -22,18 +22,18 @@ const Code = () => (
 `}</pre>
 );
 
-storiesOf("Code Previews", module)
-  .add("Default", () => (
+storiesOf('Code Previews', module)
+  .add('Default', () => (
     <CodePreview>
       <Code />
     </CodePreview>
   ))
-  .add("BitBucket", () => (
+  .add('BitBucket', () => (
     <CodePreview provider="bitbucket" language="CSS">
       <Code />
     </CodePreview>
   ))
-  .add("GitHub", () => (
+  .add('GitHub', () => (
     <CodePreview provider="github" language="CSS">
       <Code />
     </CodePreview>

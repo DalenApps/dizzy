@@ -1,13 +1,21 @@
-import React, { Component } from "react";
-import "./ItemMenu.css";
-
-
-const ItemItem = <div className="item-item">Hello</div>
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './ItemMenu.css';
 class ItemMenu extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  };
   render() {
-    const { href, className, children } = this.props;
-    return <div className={`dz-item-menu ${className ? className : ''}`}>{children}</div>;
+    const { className, children } = this.props;
+    return (
+      <div className={`dz-item-menu ${className ? className : ''}`}>
+        {children}
+      </div>
+    );
   }
 }
 

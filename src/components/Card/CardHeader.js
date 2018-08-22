@@ -1,13 +1,17 @@
-import React, { Component } from "react";
-import "./Card.css";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import './Card.css';
+import PropTypes from 'prop-types';
 class CardHeader extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     className: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   };
   static defaultProps = {
-    title: "Header",
+    title: 'Header',
     className: ''
   };
 

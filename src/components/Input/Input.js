@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./Input.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './Input.css';
 
 class Input extends Component {
   static propTypes = {
     className: PropTypes.string
   };
   static defaultProps = {
-    className: ""
+    className: ''
   };
 
   render() {
     const { className } = this.props;
     return (
       <input
-        className={`dz-input-control dz-input ${className ? className : ""}`}
+        className={`dz-input-control dz-input ${className ? className : ''}`}
       />
     );
   }

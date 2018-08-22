@@ -21,6 +21,7 @@
   transition: border-color 0.15s ease-in-out;
   box-sizing: border-box;
 }
+
 .dz-input-control-small {
   padding: 0.3125rem 0.625rem;
   font-size: 0.75rem;

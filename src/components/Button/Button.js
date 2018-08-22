@@ -1,15 +1,19 @@
-import React, { Component } from "react";
-import cx from "classnames";
-import PropTypes from "prop-types";
-import "./button.scss";
+import React, { Component } from 'react';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import './button.scss';
 
 class Button extends Component {
   static propTypes = {
     className: PropTypes.string,
-    href: PropTypes.string
+    href: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   };
   static defaultProps = {
-    className: "dz-button-primary",
+    className: 'dz-button-primary',
     href: null
   };
 
@@ -17,12 +21,12 @@ class Button extends Component {
     const { href, className, children } = this.props;
     if (href) {
       return (
-        <a href={href} className={cx("dz-button", className)}>
+        <a href={href} className={cx('dz-button', className)}>
           {children}
         </a>
       );
     }
-    return <button className={cx("dz-button", className)}>{children}</button>;
+    return <button className={cx('dz-button', className)}>{children}</button>;
   }
 }
 

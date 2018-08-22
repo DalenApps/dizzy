@@ -7,6 +7,7 @@
   box-sizing: border-box;
   align-items: center;
 }
+
 .dz-divider-title {
   font-family: "Lato", sans-serif;
   font-size: 0.7rem;
@@ -22,6 +23,7 @@
   position: relative;
   font-weight: bold;
 }
+
 .dz-divider-line {
   flex: 1;
   display: block;

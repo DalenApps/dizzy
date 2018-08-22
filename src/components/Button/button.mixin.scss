@@ -1,8 +1,4 @@
-@mixin button-variant(
-  $parent,
-  $background,
-  $backgroundHover: darken($background, 10%)
-) {
+@mixin button-variant( $parent, $background, $backgroundHover: darken($background, 10%)) {
   &#{$parent} {
     background-color: $background !important;
     color: colorFromBackground($background) !important;
@@ -11,6 +7,7 @@
     }
   }
 }
+
 @mixin button-outline-variant($parent, $background) {
   &#{$parent} {
     border-color: $background !important;

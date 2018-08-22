@@ -1,32 +1,36 @@
-import React, { Component } from "react";
-import "./CodePreview.css";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import './CodePreview.css';
+import PropTypes from 'prop-types';
 
 class CodePreview extends Component {
   static propTypes = {
     className: PropTypes.string,
-    provider: PropTypes.oneOf(["bitbucket", "github"]),
-    language: PropTypes.string
+    provider: PropTypes.oneOf(['bitbucket', 'github']),
+    language: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   };
   static defaultProps = {
-    className: "",
+    className: '',
     provider: null,
-    language: ""
+    language: ''
   };
 
   nameDict = {
-    bitbucket: "BitBucket",
-    github: "GitHub"
+    bitbucket: 'BitBucket',
+    github: 'GitHub'
   };
   getProviderClass() {
     const { provider } = this.props;
-    if (provider === null) return "";
+    if (provider === null) return '';
     return `dz-code-source-${provider}`;
   }
 
   getFooter() {
     const { provider, language } = this.props;
-    if (provider === null) return "";
+    if (provider === null) return '';
     return (
       <div className="dz-code-preview-footer">
         <div className="dz-code-preview-footer-provider">
@@ -45,7 +49,7 @@ class CodePreview extends Component {
     return (
       <div
         className={`dz-code-preview ${this.getProviderClass()} ${
-          className ? className : ""
+          className ? className : ''
         }`}
       >
         {children}

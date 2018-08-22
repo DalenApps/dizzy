@@ -1,12 +1,26 @@
-import React, { Component } from "react";
-import "./Toast.css";
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './Toast.css';
+import cx from 'classnames';
 class Toast extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    icon: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  };
+  static defaultProps = {
+    className: 'dz-toast-success',
+    icon: null
+  };
+
   render() {
-    const { href, className, children } = this.props;
+    const { className, icon } = this.props;
     return (
-      <div class="dz-toast dz-toast-success dz-toast-icon">
-        {this.props.icon ? <i className="fab fa-twitter fa-3x" /> : ""}
+      <div className={cx('dz-toast', { 'dz-toast-icon': icon }, className)}>
+        {icon ? <i className="fab fa-twitter fa-3x" /> : ''}
         <div className="dz-toast-details">
           <h3 className="dz-toast-title">Changes applied</h3>
           <div className="dz-toast-subtitle">

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Pagination.css";
+import React, { Component } from 'react';
+import './Pagination.css';
 
 class Pagination extends Component {
   render() {
@@ -10,7 +10,7 @@ class Pagination extends Component {
           <div className="dz-paginator-pagepicker">
             <span className="dz-paginator-label">10</span>
           </div>
-          <span class="dz-paginator-label">
+          <span className="dz-paginator-label">
             &nbsp;|&nbsp;&nbsp;1-10 of 103 items
           </span>
         </div>

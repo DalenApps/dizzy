@@ -1,12 +1,16 @@
-import React, { Component } from "react";
-import "./Card.css";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import './Card.css';
+import PropTypes from 'prop-types';
 class CardFooter extends Component {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   };
   static defaultProps = {
-    className: ""
+    className: ''
   };
 
   render() {

@@ -1,22 +1,26 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./NavBar.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './NavBar.css';
 
 class NavBar extends Component {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   };
   static defaultProps = {
-    className: ""
+    className: ''
   };
 
   render() {
     const { children, className } = this.props;
     return (
-      <header className={`dz-navbar ${className ? className : ""}`}>
+      <header className={`dz-navbar ${className ? className : ''}`}>
         <div className="dz-navbar-brand">
-            <a href="">Dizzy</a>
-          </div>
+          <a href="">Dizzy</a>
+        </div>
         {children}
       </header>
     );

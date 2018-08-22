@@ -1,7 +1,7 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import ItemMenu from "./ItemMenu";
-storiesOf("Item Menu", module).add("Default", () => (
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import ItemMenu from './ItemMenu';
+storiesOf('Item Menu', module).add('Default', () => (
   <ItemMenu>
     <a className="item-item">Hello</a>
     <a className="item-item">Hello</a>

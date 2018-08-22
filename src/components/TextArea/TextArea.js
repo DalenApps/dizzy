@@ -1,10 +1,18 @@
-import React, { Component } from "react";
-import "./TextArea.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import './TextArea.css';
 
 class TextArea extends Component {
+  static propTypes = {
+    className: PropTypes.string
+  };
+  static defaultProps = {};
   render() {
-    const { href, className, children } = this.props;
-    return <textarea className="dz-input-control dz-text-area" />;
+    const { className } = this.props;
+    return (
+      <textarea className={cx('dz-input-control', 'dz-text-area', className)} />
+    );
   }
 }
 

@@ -1,11 +1,22 @@
-import React, { Component } from "react";
-import "./StatusBox.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './StatusBox.css';
 
 class StatusBox extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  };
+  static defaultProps = {
+    className: ''
+  };
   render() {
-    const { href, className, children } = this.props;
+    const { className, children } = this.props;
     return (
-      <div className={`dz-statusbox ${className ? className : ""}`}>
+      <div className={`dz-statusbox ${className ? className : ''}`}>
         <div className="dz-statusbox-icon">
           <i className="fas fa-plus fa-2x" />
         </div>
