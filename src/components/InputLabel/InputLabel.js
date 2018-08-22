@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './InputLabel.css';
+import './input-label.scss';
 
 class InputLabel extends Component {
   static propTypes = {
@@ -17,9 +18,7 @@ class InputLabel extends Component {
   render() {
     const { className, children } = this.props;
     return (
-      <label className={`dz-input-label ${className ? className : ''}`}>
-        {children}
-      </label>
+      <label className={cx('dz-input-label', className)}>{children}</label>
     );
   }
 }
