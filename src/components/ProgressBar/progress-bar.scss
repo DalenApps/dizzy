@@ -1,0 +1,49 @@
+@import '../../styles/main';
+@import './progress-bar.mixin';
+.dz-progress-bar-container {
+  display: flex;
+  font-size: 0.8rem;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background-color: $background;
+  height: 1rem;
+
+  .dz-progress-bar-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $white;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #007bff;
+    transition: width 0.6s ease;
+  }
+  @each $color, $value in $theme-colors {
+    @include progress-bar-variant('.dz-progress-#{$color}', $value);
+  }
+  @keyframes progress-bar-striped-animation {
+    from {
+      background-position: 1rem 0;
+    }
+    to {
+      background-position: 0 0;
+    }
+  }
+
+  .dz-progress-striped {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+  }
+  .dz-progress-animated {
+    animation: progress-bar-striped-animation 1s linear infinite;
+  }
+}
