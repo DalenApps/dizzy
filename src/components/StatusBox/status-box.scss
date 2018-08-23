@@ -23,20 +23,17 @@
 .dz-statusbox-content {
   flex: 1;
   text-align: right;
-  .title,
-  .subtitle {
+  .dz-statusbox-title,
+  .dz-statusbox-subtitle {
     padding: 0.25rem;
     margin: 0;
   }
-  .title {
+  .dz-statusbox-title {
     font-size: large;
   }
 
-  .subtitle {
+  .dz-statusbox-subtitle {
     font-size: small;
     color: $muted;
-  }
-  .icon-filled {
-    background-color: $purple;
   }
 }

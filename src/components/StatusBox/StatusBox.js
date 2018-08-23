@@ -9,22 +9,25 @@ class StatusBox extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]).isRequired
+    ]).isRequired,
+    icon: PropTypes.string
   };
   static defaultProps = {
-    className: ''
+    className: '',
+    icon: null
   };
   render() {
-    const { className, children } = this.props;
+    const { className, children, icon } = this.props;
     return (
       <div className={cx('dz-statusbox', className)}>
-        <div className="dz-statusbox-icon">
-          <i className="fas fa-plus fa-2x" />
-        </div>
-        <div className="dz-statusbox-content">
-          <p className="title">24%</p>
-          <p className="subtitle">Sales this week</p>
-        </div>
+        {icon ? (
+          <div className="dz-statusbox-icon">
+            <i className={cx('fas', 'fa-2x', `fa-${icon}`)} />
+          </div>
+        ) : (
+          ''
+        )}
+        <div className="dz-statusbox-content">{children}</div>
       </div>
     );
   }

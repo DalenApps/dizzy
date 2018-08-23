@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './icon-select.scss';
 
 const IconSelectItem = ({ icon, label }) => (
@@ -8,6 +9,14 @@ const IconSelectItem = ({ icon, label }) => (
   </div>
 );
 
+IconSelectItem.propTypes = {
+  icon: PropTypes.string,
+  label: PropTypes.string
+};
+IconSelectItem.defaultProps = {
+  icon: '',
+  label: ''
+};
 class IconSelect extends Component {
   render() {
     return (
