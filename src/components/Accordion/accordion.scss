@@ -1,0 +1,46 @@
+@import "../../styles/main";
+@import './accordion.mixin';
+.dz-accordion-container {
+  .dz-accordion-trigger {
+    background-color: $background;
+    color: $muted;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    transition: 0.4s;
+    box-sizing: border-box;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    .close-icon {
+      color: $muted;
+    }
+  }
+  &:hover {
+    background-color: #ccc;
+  }
+  .dz-show {
+    display: block !important;
+  }
+  .dz-accordion-content {
+    box-sizing: border-box;
+    padding: 0 18px;
+    background-color: white;
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    display: none;
+  }
+  &.dz-accordion-bordered{
+    @each $color, $value in $theme-colors {
+      @include accordion-bordered-variant(".dz-accordion-#{$color}", $value);
+    }
+  }
+  &.dz-accordion-filled{
+    @each $color, $value in $theme-colors {
+      @include accordion-filled-variant(".dz-accordion-#{$color}", $value);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@mixin accordion-bordered-variant($parent, $border) {
+  &#{$parent} {
+    .dz-accordion-trigger {
+      border-top: 3px solid $border;
+    }
+  }
+}
+
+@mixin accordion-filled-variant($parent, $background) {
+  &#{$parent} {
+    .dz-accordion-trigger {
+      background-color: $background;
+      color: colorFromBackground($background);
+      .close-icon {
+        color: colorFromBackground($background);
+      }
+    }
+  }
+}
