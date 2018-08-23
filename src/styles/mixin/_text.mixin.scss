@@ -1,0 +1,7 @@
+@mixin text-color($parent, $color) {
+  &#{$parent} {
+    color: $color !important;
+  }
+}
+
+

@@ -1,0 +1,16 @@
+.dz-text-upper {
+  text-transform: uppercase;
+}
+
+.dz-text-lower {
+  text-transform: lowercase;
+}
+
+.dz-text-bold {
+  font-weight: bold;
+}
+
+@each $color,
+$value in $theme-colors {
+  @include card-bordered-variant(".dz-text-#{$color}", $value);
+}
