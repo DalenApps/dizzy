@@ -1,4 +1,4 @@
-@import "../../styles/main";
+@import '../../styles/main';
 @import './accordion.mixin';
 .dz-accordion-container {
   .dz-accordion-trigger {
@@ -33,14 +33,19 @@
     transition: max-height 0.2s ease-out;
     display: none;
   }
-  &.dz-accordion-bordered{
+  &.dz-accordion-bordered {
     @each $color, $value in $theme-colors {
-      @include accordion-bordered-variant(".dz-accordion-#{$color}", $value);
+      @include accordion-bordered-variant('.dz-accordion-#{$color}', $value);
     }
   }
-  &.dz-accordion-filled{
+  &.dz-accordion-filled {
     @each $color, $value in $theme-colors {
-      @include accordion-filled-variant(".dz-accordion-#{$color}", $value);
+      @include accordion-filled-variant('.dz-accordion-#{$color}', $value);
+    }
+  }
+  &.dz-accordion-condensed {
+    .dz-accordion-trigger {
+      padding: 0.5rem 1rem !important;
     }
   }
 }
