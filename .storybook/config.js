@@ -1,13 +1,15 @@
-import { configure } from "@storybook/react";
-import { setOptions } from "@storybook/addon-options";
+import { configure } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
 
 setOptions({
-  name: "Dizzy",
-  url: "https://dalenapps.no",
+  name: 'Dizzy',
+  url: 'https://dalenapps.no',
+  showSearchBox: true,
+  addonPanelInRight: true
 });
 
 function loadStories() {
-  require("../src/stories");
+  require('../src/stories');
 }
 
 configure(loadStories, module);
