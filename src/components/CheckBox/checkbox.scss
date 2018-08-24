@@ -1,0 +1,62 @@
+@import '../../styles/main';
+@import './checkbox.mixin';
+.dz-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 1.5625rem;
+  margin-bottom: 0.1875rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  user-select: none;
+  line-height: 1;
+  margin: 0.1875rem;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .dz-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.9375rem;
+    width: 0.9375rem;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: lighten($color: $muted, $amount: 30%);
+  }
+
+  &:hover {
+    .dz-checkmark {
+      background-color: lighten($color: $muted, $amount: 10%);
+    }
+  }
+
+  input:checked ~ .dz-checkmark {
+    background-color: $primary;
+  }
+
+  .dz-checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .dz-checkmark:after {
+    display: block;
+  }
+
+  .dz-checkmark:after {
+    left: 0.25rem;
+    top: 0.125rem;
+    width: 0.25rem;
+    height: 0.4375rem;
+    border: solid $white;
+    border-width: 0 0.125rem 0.125rem 0;
+    transform: rotate(45deg);
+  }
+  @each $color, $value in $theme-colors {
+    @include checkbox-variant('.dz-checkbox-#{$color}', $value);
+  }
+}

@@ -1,0 +1,10 @@
+@mixin checkbox-variant($parent, $color) {
+  &#{$parent} {
+    input:checked ~ .dz-checkmark {
+      background-color: $color !important;
+    }
+    .dz-checkmark:after {
+      border-color: colorFromBackground($color) !important;
+    }
+  }
+}
