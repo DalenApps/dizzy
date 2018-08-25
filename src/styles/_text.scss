@@ -10,7 +10,6 @@
   font-weight: bold;
 }
 
-@each $color,
-$value in $theme-colors {
-  @include card-bordered-variant(".dz-text-#{$color}", $value);
+@each $color, $value in $theme-colors {
+  @include text-color('.dz-text-#{$color}', $value);
 }
