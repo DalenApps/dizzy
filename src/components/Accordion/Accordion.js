@@ -40,11 +40,12 @@ class Accordion extends Component {
           onClick={() => this.setState({ isToggled: !this.state.isToggled })}
         >
           Open
-          {this.state.isToggled ? (
-            <i className="fas fa-minus close-icon" />
-          ) : (
-            <i className="fas fa-plus close-icon" />
-          )}
+          <span
+            className={cx(
+              { 'dz-caret-down': !isToggled },
+              { 'dz-caret-up': isToggled }
+            )}
+          />
         </div>
         <div
           className={cx(

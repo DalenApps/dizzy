@@ -1,7 +1,7 @@
 @mixin accordion-bordered-variant($parent, $border) {
   &#{$parent} {
     .dz-accordion-trigger {
-      border-top: 3px solid $border;
+      border-top: 0.1875rem solid $border;
     }
   }
 }
@@ -9,10 +9,37 @@
 @mixin accordion-filled-variant($parent, $background) {
   &#{$parent} {
     .dz-accordion-trigger {
-      background-color: $background;
-      color: colorFromBackground($background);
+      background-color: $background !important;
+      color: colorFromBackground($background) !important;
       .close-icon {
-        color: colorFromBackground($background);
+        color: colorFromBackground($background) !important;
+      }
+      .dz-caret-down:before {
+        border-top-color: colorFromBackground($background) !important;
+      }
+      .dz-caret-down:after {
+        border-top-color: $background !important;
+      }
+      .dz-caret-up:before {
+        border-bottom-color: colorFromBackground($background) !important;
+      }
+      .dz-caret-up:after {
+        border-bottom-color: $background !important;
+      }
+      &:hover {
+        background-color: darken($color: $background, $amount: 10%) !important;
+        .dz-caret-down::after {
+          border-top-color: darken(
+            $color: $background,
+            $amount: 10%
+          ) !important;
+        }
+        .dz-caret-up:after {
+          border-bottom-color: darken(
+            $color: $background,
+            $amount: 10%
+          ) !important;
+        }
       }
     }
   }
