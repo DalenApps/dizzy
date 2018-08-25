@@ -15,6 +15,7 @@ const colors = [
   'purple',
   'white'
 ];
+/* eslint no-console: 0 */
 storiesOf('CheckBox', module)
   .add('Default', () => (
     <CheckBox
@@ -29,7 +30,7 @@ storiesOf('CheckBox', module)
       {colors.map(color => {
         return (
           <CheckBox
-
+            key={color}
             label={color}
             checked={true}
             onCheckChange={checked => console.log(checked)}
