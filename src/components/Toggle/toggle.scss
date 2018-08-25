@@ -1,0 +1,84 @@
+@import '../../styles/main';
+@import './toggle.mixin';
+.dz-toggle-container {
+  position: relative;
+  display: inline-block;
+  width: 1.875rem;
+  height: 1.0625rem;
+  margin: 0.1875rem;
+  input {
+    display: none;
+    &:checked + .dz-toggle-button {
+      background-color: $primary;
+    }
+
+    &:focus + .dz-toggle-button {
+      box-shadow: 0 0 0.0625rem $primary;
+    }
+
+    &:checked + .dz-toggle-button:before {
+      transform: translateX(0.8125rem);
+    }
+  }
+
+  .dz-toggle-button {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lighten($color: $muted, $amount: 30%);
+    transition: 0.4s;
+  }
+
+  .dz-toggle-button:before {
+    position: absolute;
+    content: '';
+    height: 0.8125rem;
+    width: 0.8125rem;
+    left: 0.125rem;
+    bottom: 0.125rem;
+    background-color: $white;
+    transition: 0.4s;
+  }
+  &.dz-toggle-large {
+    width: 2.8125rem;
+    height: 1.5938rem;
+    input {
+      &:checked + .dz-toggle-button:before {
+        transform: translateX(1.2188rem);
+      }
+    }
+    .dz-toggle-button:before {
+      height: 1.2188rem;
+      width: 1.2188rem;
+      left: 0.1875rem;
+      bottom: 0.1875rem;
+    }
+  }
+  .dz-toggle-label {
+    display: inline-block;
+  }
+
+  &.dz-toggle-rounded {
+    .dz-toggle-button {
+      border-radius: 2.125rem;
+    }
+    .dz-toggle-button:before {
+      border-radius: 50%;
+    }
+  }
+  @each $color, $value in $theme-colors {
+    @include toggle-variant('.dz-toggle-#{$color}', $value);
+  }
+}
+.dz-toggle-with-label {
+  display: inline-flex;
+  justify-items: center;
+  align-items: center;
+  font-size: small;
+  .dz-toggle-container {
+    margin: 0 0.3125rem !important;
+  }
+}

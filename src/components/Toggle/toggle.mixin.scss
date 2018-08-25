@@ -1,0 +1,15 @@
+@mixin toggle-variant($parent, $background) {
+  &#{$parent} {
+    input {
+      &:checked + .dz-toggle-button {
+        background-color: $background !important;
+      }
+      &:focus + .dz-toggle-button {
+        box-shadow: 0 0 0.0625rem $background !important;
+      }
+    }
+    .dz-toggle-button:before {
+      background-color: colorFromBackground($background) !important;
+    }
+  }
+}
