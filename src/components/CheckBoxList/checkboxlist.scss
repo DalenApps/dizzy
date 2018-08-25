@@ -1,0 +1,12 @@
+@import '../../styles/main';
+.dz-checkbox-list-container {
+  padding: 10px;
+  background-color: $white;
+  display: inline-block;
+  box-sizing: border-box;
+  .dz-checkbox-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
