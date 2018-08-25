@@ -7,21 +7,22 @@ class CheckBox extends Component {
   static propTypes = {
     className: PropTypes.string,
     checked: PropTypes.bool,
+    label: PropTypes.string,
     onCheckChange: PropTypes.func.isRequired
   };
   static defaultProps = {
     className: '',
-    checked: false
+    checked: false,
+    label: 'Checkbox'
   };
 
   _onChange() {
-    const { checked, onCheckChange } = this.props;
-    console.log('calling internal change func');
-    onCheckChange(checked);
+    const { onCheckChange } = this.props;
+    onCheckChange();
   }
 
   render() {
-    const { checked, label, className, onCheckChange } = this.props;
+    const { checked, label, className } = this.props;
     return (
       <label className={cx('dz-checkbox-container', className)}>
         {label}
@@ -29,7 +30,7 @@ class CheckBox extends Component {
           className="dz-checkbox"
           type="checkbox"
           checked={checked}
-          onChange={() => this.onChange()}
+          onChange={() => this._onChange()}
         />
         <span className="dz-checkmark" />
       </label>
