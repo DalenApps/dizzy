@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StatusBox from './StatusBox';
+import {StatusBox} from '../../';
 storiesOf('StatusBox', module).add('Default', () => (
   <StatusBox icon="plus">
     <p className="dz-statusbox-title">24%</p>

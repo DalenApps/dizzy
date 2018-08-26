@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
-import CheckBox from './CheckBox';
+import { CheckBox } from '../../';
 const colors = [
   'primary',
   'dark-blue',

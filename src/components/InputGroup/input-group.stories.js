@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import InputGroup from './InputGroup';
-import InputLabel from '../InputLabel/InputLabel';
-import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
+import { InputGroup, InputLabel, Input, TextArea } from '../../';
+
 storiesOf('Input Group', module)
   .add('Default', () => (
     <InputGroup style={{ backgroundColor: '#fff', width: '100%' }}>

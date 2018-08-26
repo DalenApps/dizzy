@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import CodePreview from './CodePreview/CodePreview';
+import { CodePreview } from '../../';
 
 const Code = () => (
   <pre>{`

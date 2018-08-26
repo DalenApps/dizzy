@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Accordion from './Accordion';
+import { Accordion } from '../../';
 storiesOf('Accordion', module)
   .add('Default', () => (
     <Accordion>

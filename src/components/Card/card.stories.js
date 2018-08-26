@@ -1,7 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Card, CardHeader, CardTools, CardFooter, CardBody } from './';
-import Button from '../Button/Button';
+import {
+  Card,
+  CardHeader,
+  CardTools,
+  CardFooter,
+  CardBody,
+  Button
+} from '../../';
 const demoBody = (
   <CardBody>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus risus

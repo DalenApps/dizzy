@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ProgressBar from './ProgressBar';
+import { ProgressBar } from '../../';
 storiesOf('ProgressBar', module)
   .add('Default', () => (
     <ProgressBar completed={77} className="dz-progress-purple" />

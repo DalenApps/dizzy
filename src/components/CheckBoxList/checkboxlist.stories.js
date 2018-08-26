@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, forceReRender } from '@storybook/react';
-import CheckBoxList from './CheckBoxList';
+import { CheckBoxList } from '../../';
 /* eslint no-magic-numbers: ["error", { "ignore": [0,1,2,3,10] }] */
 let countries = [
   { id: 1, name: 'Cabo Verde' },
