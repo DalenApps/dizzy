@@ -18,6 +18,7 @@ export * from './components/Previews';
 export * from './components/ProgressBar';
 export * from './components/Select';
 export * from './components/StatusBox';
+export * from './components/Table';
 export * from './components/TextArea';
 export * from './components/Toast';
 export * from './components/Toggle';
