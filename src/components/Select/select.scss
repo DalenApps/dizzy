@@ -12,6 +12,7 @@
 }
 
 .dz-select-container {
+  position: relative;
   .dz-select-info {
     align-items: center;
     display: flex;
@@ -68,6 +69,8 @@
     @extend %stuffs;
     max-height: 15.625rem;
     overflow-y: auto;
+    position: absolute;
+    width: 100%;
     .dz-select-option {
       padding: 0.375rem 0.9375rem;
       color: $dark;
