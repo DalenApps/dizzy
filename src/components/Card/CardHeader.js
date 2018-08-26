@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './card.scss';
 import PropTypes from 'prop-types';
 class CardHeader extends Component {
   static propTypes = {

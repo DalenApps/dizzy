@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './accordion.scss';
 class Accordion extends Component {
   static propTypes = {
     className: PropTypes.string,

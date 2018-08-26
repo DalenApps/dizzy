@@ -1,5 +1,4 @@
-@import "../../styles/main";
-@import "./badge.mixin";
+
 .dz-badge {
   border-radius: 0.3125rem;
   font-size: small;
@@ -15,10 +14,10 @@
   .badge-addon-left:first-child {
     left: 0;
     margin-left: -0.625rem;
-    padding: 5px 0.625rem;
+    padding: 0.3125rem 0.625rem;
     margin-right: 0.625rem;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
   }
   .badge-addon-right:first-child {
     right: 0;

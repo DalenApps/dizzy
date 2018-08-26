@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Badge, BadgeAddon } from './';
+import { Badge, BadgeAddon } from '../../';
 
 storiesOf('Badge', module)
   .add('Default', () => <Badge className={'dz-badge-primary'}>New</Badge>)

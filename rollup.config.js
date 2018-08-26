@@ -1,28 +1,28 @@
-import babel from "rollup-plugin-babel";
-import commonjs from "rollup-plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
-import postcss from "rollup-plugin-postcss";
-import resolve from "rollup-plugin-node-resolve";
-import url from "rollup-plugin-url";
+import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
+import resolve from 'rollup-plugin-node-resolve';
+import url from 'rollup-plugin-url';
 
-import simplevars from "postcss-simple-vars";
-import nested from "postcss-nested";
-import cssnext from "postcss-cssnext";
+import simplevars from 'postcss-simple-vars';
+import nested from 'postcss-nested';
+import cssnext from 'postcss-cssnext';
 import autoprefixer from 'autoprefixer';
 
-import pkg from "./package.json";
-
+import pkg from './package.json';
+import path from 'path';
 export default {
-  input: "src/index.js",
+  input: 'src/index.js',
   output: [
     {
       file: pkg.main,
-      format: "cjs",
+      format: 'cjs',
       sourcemap: true
     },
     {
       file: pkg.module,
-      format: "es",
+      format: 'es',
       sourcemap: true
     }
   ],
@@ -33,15 +33,16 @@ export default {
         autoprefixer(),
         simplevars(),
         nested(),
-        cssnext({ warnForDuplicates: false }),
+        cssnext({ warnForDuplicates: false })
       ],
       minimize: true,
-      modules: true,
-      extensions: [".scss"]
+      modules: false,
+      extensions: ['.scss'],
+      extract: path.resolve('./dist/dizzy.css')
     }),
     url(),
     babel({
-      exclude: "node_modules/**",
+      exclude: 'node_modules/**',
       plugins: ['external-helpers']
     }),
     resolve(),

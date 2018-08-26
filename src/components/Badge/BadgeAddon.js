@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import './badge.scss';
+
 class BadgeAddon extends Component {
   static propTypes = {
     direction: PropTypes.string,

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './code-preview.scss';
 
 class CodePreview extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-
+/* import '../dist/dizzy.css'; */
 setOptions({
   name: 'Dizzy',
   url: 'https://dalenapps.no',

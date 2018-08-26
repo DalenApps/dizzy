@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './status-box.scss';
 
 class StatusBox extends Component {
   static propTypes = {

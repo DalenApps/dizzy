@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './item-menu.scss';
 class ItemMenu extends Component {
   static propTypes = {
     className: PropTypes.string,

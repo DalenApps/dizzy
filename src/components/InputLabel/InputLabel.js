@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './input-label.scss';
 
 class InputLabel extends Component {
   static propTypes = {

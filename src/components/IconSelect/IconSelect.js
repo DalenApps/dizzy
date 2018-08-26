@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './icon-select.scss';
 
 const IconSelectItem = ({ icon, label }) => (
   <div className="dz-icon-select">
