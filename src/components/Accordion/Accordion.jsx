@@ -36,7 +36,7 @@ class Accordion extends Component {
       <div className={cx('dz-accordion-container', className)}>
         <div
           className={cx('dz-accordion-trigger', triggerClassName)}
-          onClick={() => this.setState({ isToggled: !isToggled })}
+          onClick={() => this.setState({ isToggled: !this.state.isToggled })}
         >
           Open
           <span
