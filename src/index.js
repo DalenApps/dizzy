@@ -12,6 +12,7 @@ export * from './components/Input';
 export * from './components/InputGroup';
 export * from './components/InputLabel';
 export * from './components/ItemMenu';
+export * from './components/Modal';
 export * from './components/Nav';
 export * from './components/Pagination';
 export * from './components/Previews';
