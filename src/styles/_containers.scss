@@ -1,0 +1,14 @@
+.dz-container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.dz-container {
+  @each $size, $break in $breakpoints {
+    @media (min-width: $break) {
+      max-width: map-get($container-max-widths, $size);
+    }
+  }
+}

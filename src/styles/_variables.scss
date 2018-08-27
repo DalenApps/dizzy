@@ -18,22 +18,35 @@ $white: #ffffff !default;
 
 $fontfamOxy: 'Oxygen', sans-serif;
 
-
 $theme-colors: () !default;
 
 $theme-colors: map-merge(
   (
-    "dark-blue": $dark-blue,
-    "light-blue": $light-blue,
-    "muted": $muted,
-    "blue": $blue,
-    "primary": $primary,
-    "dark": $dark,
-    "success": $success,
-    "danger": $danger,
-    "warning": $warning,
-    "purple": $purple,
-    "white": $white
+    'dark-blue': $dark-blue,
+    'light-blue': $light-blue,
+    'muted': $muted,
+    'blue': $blue,
+    'primary': $primary,
+    'dark': $dark,
+    'success': $success,
+    'danger': $danger,
+    'warning': $warning,
+    'purple': $purple,
+    'white': $white
   ),
   $theme-colors
 );
+
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xlarge: 1200px
+) !default;
+
+$container-max-widths: (
+  small: 540px,
+  medium: 720px,
+  large: 960px,
+  xlarge: 1140px
+) !default;
