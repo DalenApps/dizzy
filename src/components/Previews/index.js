@@ -1,1 +1,1 @@
-export { default as CodePreview } from './CodePreview/CodePreview';
+export { default as CodePreview } from './CodePreview/CodePreview.jsx';

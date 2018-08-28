@@ -1,1 +1,1 @@
-export { default as StatusBox } from './StatusBox';
+export { default as StatusBox } from './StatusBox.jsx';
