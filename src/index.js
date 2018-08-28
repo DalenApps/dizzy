@@ -8,6 +8,7 @@ export * from './components/CheckBox';
 export * from './components/CheckBoxList';
 export * from './components/Divider';
 export * from './components/IconSelect';
+export * from './components/Image';
 export * from './components/Input';
 export * from './components/InputGroup';
 export * from './components/InputLabel';
