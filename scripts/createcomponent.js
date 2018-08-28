@@ -26,7 +26,7 @@ function createComponent() {
   fs.mkdirSync(folderPath);
   fs.writeFileSync(
     path.resolve(folderPath, 'index.js'),
-    `export { default as ${pascalCaseName} } from './${pascalCaseName}';\n`
+    `export { default as ${pascalCaseName} } from './${pascalCaseName}.jsx';\n`
   );
   fs.writeFileSync(
     path.resolve(folderPath, name + '.stories.js'),
