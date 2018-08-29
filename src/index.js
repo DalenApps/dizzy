@@ -7,6 +7,7 @@ export * from './components/Card';
 export * from './components/CheckBox';
 export * from './components/CheckBoxList';
 export * from './components/Divider';
+export * from './components/Grid';
 export * from './components/IconSelect';
 export * from './components/Image';
 export * from './components/Input';

@@ -1,0 +1,12 @@
+@mixin make-column($parent, $width) {
+  &#{$parent} {
+    // TODO: Move to combined class
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: $grid-item-width * $width;
+    flex: 0 0 $grid-item-width * $width;
+  }
+}

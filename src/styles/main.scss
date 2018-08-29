@@ -11,13 +11,14 @@
  @import './src/components/Accordion/accordion.mixin.scss';
  @import './src/components/Button/button.mixin.scss';
  @import './src/components/Card/card.mixin.scss';
+ @import './src/components/Grid/grid.mixin.scss';
  @import './src/components/CheckBox/checkbox.mixin.scss';
  @import './src/components/ProgressBar/progress-bar.mixin.scss';
  @import './src/components/Toast/toast.mixin.scss';
  @import './src/components/Toggle/toggle.mixin.scss';
 
- 
- 
+
+
  @import './src/components/Badge/badge.scss';
  @import './src/components/Accordion/accordion.scss';
  @import './src/components/Button/button.scss';
@@ -25,6 +26,7 @@
  @import './src/components/CheckBox/checkbox.scss';
  @import './src/components/CheckBoxList/checkboxlist.scss';
  @import './src/components/Divider/divider.scss';
+ @import './src/components/Grid/Grid.scss';
  @import './src/components/IconSelect/icon-select.scss';
  @import './src/components/Image/image.scss';
  @import './src/components/Input/input.scss';

@@ -1,0 +1,12 @@
+.dz-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: bisque; // Dev only
+  margin: 0 -15px;
+  .dz-grid-item {
+    @for $item-width from 1 to $grid-column-count {
+      @include make-column('.dz-grid-item-small-#{$item-width}', $item-width);
+    }
+  }
+}

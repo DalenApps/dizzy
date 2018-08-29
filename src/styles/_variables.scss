@@ -50,3 +50,6 @@ $container-max-widths: (
   large: 960px,
   xlarge: 1140px
 ) !default;
+$grid-column-count: 12;
+$grid-width: 100%;
+$grid-item-width: ($grid-width / $grid-column-count);
