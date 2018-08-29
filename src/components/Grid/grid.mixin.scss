@@ -1,12 +1,21 @@
-@mixin make-column($parent, $width) {
-  &#{$parent} {
-    // TODO: Move to combined class
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    max-width: $grid-item-width * $width;
-    flex: 0 0 $grid-item-width * $width;
+@mixin make-columns() {
+  @each $break in map-keys($breakpoints) {
+    @for $width from 1 through $grid-column-count {
+      &.dz-grid-item-#{$break}-#{$width} {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  @each $break in map-keys($breakpoints) {
+    @for $width from 1 through $grid-column-count {
+      &.dz-grid-item-#{$break}-#{$width} {
+        flex: 0 0 percentage($width / $grid-column-count);
+      }
+    }
   }
 }
