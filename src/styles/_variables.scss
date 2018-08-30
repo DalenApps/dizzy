@@ -1,11 +1,11 @@
 $background: #f0f0f1 !default;
-$dark-muted: #5a6872 !default;
+$darkmuted: #5a6872 !default;
 $borders: #dfe3e6 !default;
 $brand-bitbucket: #205081 !default;
 $brand-github: #333 !default;
 
-$dark-blue: #394165 !default;
-$light-blue: #48bbff !default;
+$darkblue: #394165 !default;
+$lightblue: #48bbff !default;
 $muted: #777 !default;
 $blue: #6480ff !default;
 $primary: #377ee2 !default;
@@ -22,8 +22,8 @@ $theme-colors: () !default;
 
 $theme-colors: map-merge(
   (
-    'dark-blue': $dark-blue,
-    'light-blue': $light-blue,
+    'darkblue': $darkblue,
+    'lightblue': $lightblue,
     'muted': $muted,
     'blue': $blue,
     'primary': $primary,

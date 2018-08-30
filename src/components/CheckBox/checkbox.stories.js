@@ -4,8 +4,8 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { CheckBox } from '../../';
 const colors = [
   'primary',
-  'dark-blue',
-  'light-blue',
+  'darkblue',
+  'lightblue',
   'muted',
   'blue',
   'dark',
