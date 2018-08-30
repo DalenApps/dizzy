@@ -14,8 +14,8 @@ storiesOf('Badge', module)
   ))
   .add('Colors', () => (
     <div>
-      <Badge className={'dz-badge-dark-blue'}>Dark blue</Badge>
-      <Badge className={'dz-badge-light-blue'}>Light Blue</Badge>
+      <Badge className={'dz-badge-darkblue'}>Dark blue</Badge>
+      <Badge className={'dz-badge-lightblue'}>Light Blue</Badge>
       <Badge className={'dz-badge-muted'}>Muted</Badge>
       <Badge className={'dz-badge-blue'}>Blue</Badge>
       <Badge className={'dz-badge-primary'}>Primary</Badge>

@@ -4,8 +4,8 @@ import { boolean, text } from '@storybook/addon-knobs/react';
 import { Toggle } from '../../';
 const colors = [
   'primary',
-  'dark-blue',
-  'light-blue',
+  'darkblue',
+  'lightblue',
   'muted',
   'blue',
   'dark',
