@@ -1,0 +1,10 @@
+@mixin radiobutton-variant($parent, $color) {
+  &#{$parent} {
+    input:checked ~ .dz-radiobutton-selected {
+      background-color: $color !important;
+    }
+    .dz-radiobutton-selected:after {
+      background-color: colorFromBackground($color) !important;
+    }
+  }
+}

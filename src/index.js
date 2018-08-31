@@ -19,6 +19,7 @@ export * from './components/Nav';
 export * from './components/Pagination';
 export * from './components/Previews';
 export * from './components/ProgressBar';
+export * from './components/RadioButton';
 export * from './components/Select';
 export * from './components/StatusBox';
 export * from './components/Table';
