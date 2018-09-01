@@ -25,7 +25,13 @@ class Table extends Component {
   };
 
   renderTable() {
-    const { children, striped, condensed, caption, captionPosition } = this.props;
+    const {
+      children,
+      striped,
+      condensed,
+      caption,
+      captionPosition
+    } = this.props;
     return (
       <table
         className={cx(
