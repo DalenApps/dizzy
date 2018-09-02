@@ -1,17 +1,29 @@
+.dz-navbar,
+.dz-navbar-viewport {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 .dz-navbar {
+  .dz-navbar-viewport {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    @each $size, $break in $breakpoints {
+      @media (min-width: $break) {
+        max-width: map-get($container-max-widths, $size);
+      }
+    }
+  }
   background-color: $white;
   color: $primary;
   height: 3.875rem;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 2.5rem;
-  line-height: 3.875rem;
   justify-content: space-between;
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.26);
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
 
   &.dz-navbar-sticky {
     position: absolute;
@@ -20,13 +32,122 @@
     right: 0;
   }
   .dz-navbar-brand {
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 0 1.25rem;
     cursor: pointer;
-    padding: 0 1.875rem;
-    a {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+    .dz-brand-image {
+      max-height: 3.125rem;
+      width: auto;
+    }
+  }
+
+  .dz-navbar-menu {
+    display: inline-flex;
+    align-self: flex-end;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    .dz-navbar-menu-item {
+      height: 100%;
+      padding: 0 15px;
+      font-weight: bold;
+      font-size: small;
+      color: $primary;
+      text-transform: uppercase;
       text-decoration: none;
-      &:visited {
-        color: inherit;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+
+      &:hover,
+      &.active {
+        background-color: darken($color: $primary, $amount: 10%);
+        color: colorFromBackground(darken($color: $primary, $amount: 10%));
+        cursor: pointer;
       }
+      :visited,
+      :link {
+        color: $primary;
+      }
+      &.dz-user-item {
+        display: inline-flex !important;
+        align-items: center;
+        flex-direction: row;
+        text-transform: unset;
+        margin-left: auto;
+        &:hover {
+          img {
+            border-color: colorFromBackground($primary);
+          }
+        }
+        img {
+          height: 30px;
+          border-radius: 50%;
+          border: 2px solid $primary;
+          margin-right: 5px;
+        }
+        @media (max-width: 700px) {
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .dz-navbar-mobile-expander {
+    cursor: pointer;
+    margin: 0 10px;
+    display: none;
+  }
+}
+@media (max-width: 574px) {
+  .dz-navbar-menu:not(:first-child) {
+    display: none;
+  }
+  .dz-navbar-mobile-expander {
+    display: flex !important;
+    justify-self: flex-end;
+  }
+  .dz-navbar,
+  .dz-navbar-viewport {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 574px) {
+  .expanded {
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .dz-navbar-brand {
+      display: flex;
+    }
+    .dz-navbar-menu {
+      display: block;
+      background-color: $white;
+      width: 100%;
+      .dz-navbar-menu-item {
+        width: 100%;
+        background-color: $white;
+      }
+      .dz-user-item {
+        margin-left: 0 !important;
+      }
+    }
+    .dz-navbar-mobile-expander {
+      position: absolute;
+      right: 10px;
+      top: 10px;
     }
   }
 }
