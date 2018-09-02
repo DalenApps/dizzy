@@ -1,0 +1,56 @@
+.dz-alert {
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-radius: 0.25rem;
+  padding: 0.625rem;
+  margin: 0.3125rem;
+  position: relative;
+  display: inline-block;
+  .dz-alert-message {
+    font-weight: bold;
+    font-size: large;
+    margin: 0;
+    color: $dark;
+  }
+  .dz-alert-description {
+    margin: 5px 0 0 0;
+    color: $muted;
+    font-size: 0.8125rem;
+  }
+  .dz-alert-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: $muted;
+    &:hover {
+      cursor: pointer;
+      color: $dark;
+    }
+  }
+  &.dz-alert-wi {
+    display: inline-flex;
+    .dz-alert-wi-content {
+      margin-left: 10px;
+    }
+  }
+  &.dz-alert-info {
+    border-color: lighten($primary, 10%);
+    background-color: lighten($primary, 40%);
+    color: lighten($primary, 10%);
+  }
+  &.dz-alert-success {
+    border-color: lighten($success, 10%);
+    background-color: lighten($success, 50%);
+    color: lighten($success, 10%);
+  }
+  &.dz-alert-warning {
+    border-color: lighten($warning, 10%);
+    background-color: lighten($warning, 30%);
+    color: lighten($warning, 10%);
+  }
+  &.dz-alert-danger {
+    border-color: lighten($danger, 10%);
+    background-color: lighten($danger, 30%);
+    color: lighten($danger, 10%);
+  }
+}
