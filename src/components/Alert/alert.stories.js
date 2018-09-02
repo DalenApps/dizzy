@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Alert } from '../../';
+/* eslint no-console: 0 */
 storiesOf('Alert', module)
   .add('Default', () => (
     <Alert message={'This is some description that could be added'} />
