@@ -4,7 +4,7 @@ import { setOptions } from '@storybook/addon-options';
 setOptions({
   name: 'Dizzy',
   url: 'https://dalenapps.no',
-  showSearchBox: true,
+  showSearchBox: false,
   addonPanelInRight: true
 });
 
