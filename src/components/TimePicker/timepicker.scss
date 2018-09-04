@@ -1,0 +1,49 @@
+.dz-timepicker {
+  position: relative;
+  height: 100%;
+  max-width: 200px;
+  .dz-timepicker-content {
+    position: absolute;
+    background-color: $white;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid $borders;
+    width: 100%;
+    display: none;
+    flex-direction: row;
+    align-content: space-around;
+    overflow: hidden;
+    box-sizing: border-box;
+    &.visible {
+      display: flex;
+    }
+    .dz-timepicker-column {
+      max-height: 200px;
+     // width: 100% / 3;
+      //flex-grow: 1;
+      overflow: hidden;
+      border-right: 1px solid $borders;
+      width: 64px;
+      ul {
+        list-style: none;
+        padding: 0 16px 0 0;
+        margin: 0;
+        width: 100%;
+        li {
+         // padding: 0 15px;
+          text-align: left;
+
+          &:hover {
+            background-color: $background;
+            cursor: pointer;
+          }
+        }
+      }
+      &:hover {
+        overflow-y: auto;
+      }
+
+      max-height: 100px;
+    }
+  }
+}

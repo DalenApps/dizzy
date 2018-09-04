@@ -32,5 +32,6 @@ export * from './components/Steps';
 export * from './components/TabControl';
 export * from './components/Table';
 export * from './components/TextArea';
+export * from './components/TimePicker';
 export * from './components/Toast';
 export * from './components/Toggle';
