@@ -1,0 +1,23 @@
+.dz-list {
+  background: $white;
+  border: 0.0625rem solid $borders;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0.1875rem;
+  padding: 0;
+  .dz-list-item {
+    &:nth-child(even) {
+      border-top: 0.0625rem solid $borders;
+      border-bottom: 0.0625rem solid $borders;
+    }
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.625rem 1.25rem;
+  }
+}
