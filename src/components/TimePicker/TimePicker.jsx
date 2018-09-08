@@ -108,6 +108,10 @@ class TimePicker extends Component {
       </div>
     );
   }
+  toggleOpen() {
+    const { open } = this.state;
+    this.setState({ open: !open });
+  }
   pad(n, width, z) {
     z = z || '0';
     n = n + '';
@@ -205,20 +209,18 @@ class TimePicker extends Component {
   render() {
     const { className } = this.props;
     const { open } = this.state;
+    const iconClass = cx('fas', { 'fa-times': open }, { 'fa-clock': !open });
+    const containerClass = cx('dz-timepicker', className);
+    const inputClass = cx('dz-input-control', 'dz-timepicker-input');
+    const togglerClass = cx('dz-timepicker-close');
     return (
-      <div
-        className={cx('dz-timepicker', className)}
-        onClick={() => this.setState({ open: true })}
-      >
-        <div className={cx('dz-input-control', 'dz-timepicker-input')}>
+      <div className={containerClass} onClick={() => this.toggleOpen()}>
+        <div className={inputClass}>
           <span className={cx('dz-timepicker-value')}>
             {this.getSelectedValue().format(this.props.format)}
           </span>
-          <span
-            className={cx('dz-timepicker-close')}
-            onClick={() => this.setState({ open: false })}
-          >
-            <i className="fas fa-times" />
+          <span className={togglerClass} onClick={() => this.toggleOpen()}>
+            <i className={iconClass} />
           </span>
         </div>
         <div className={cx('dz-timepicker-content', { visible: open })}>
