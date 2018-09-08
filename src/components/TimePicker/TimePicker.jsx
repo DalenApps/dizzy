@@ -17,21 +17,29 @@ class TimePicker extends Component {
     use24Hour: PropTypes.bool,
     showHeaders: PropTypes.bool,
     value: PropTypes.instanceOf(moment),
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    hrsEnabled: PropTypes.bool,
+    minEnabled: PropTypes.bool,
+    secEnabled: PropTypes.bool
   };
   static defaultProps = {
     className: '',
     closeOnFocusLost: true,
     footerComponent: null,
     disabled: false,
-    format: 'HH:mm:ss',
     defaultHourStep: 1,
     defaultMinuteStep: 1,
     defaultSecondStep: 1,
     use24Hour: false,
+    format: 'h:mm:ss A',
     value: null,
     showHeaders: true,
-    onChange: () => {}
+    onChange: mot => {
+      console.log(mot);
+    },
+    hrsEnabled: true,
+    minEnabled: true,
+    secEnabled: true
   };
   constructor(props) {
     super(props);
@@ -44,12 +52,35 @@ class TimePicker extends Component {
     };
   }
 
-  getMomentFormat() {
-    const { use24Hour } = this.props;
-  }
-
   getSelectedValue() {
-    let value = '';
+    const { selectedHrs, selectedMin, selectedSec, selectedTOD } = this.state;
+    const { format } = this.props;
+    const value = `${selectedHrs}:${selectedMin}:${selectedSec} ${selectedTOD}`;
+    return moment(value, format);
+  }
+  changeHour(hrs) {
+    const { onChange } = this.props;
+    this.setState({ selectedHrs: hrs }, () => {
+      onChange(this.getSelectedValue());
+    });
+  }
+  changeMin(min) {
+    const { onChange } = this.props;
+    this.setState({ selectedMin: min }, () => {
+      onChange(this.getSelectedValue());
+    });
+  }
+  changeSec(sec) {
+    const { onChange } = this.props;
+    this.setState({ selectedSec: sec }, () => {
+      onChange(this.getSelectedValue());
+    });
+  }
+  changeMeridiem(meridiem) {
+    const { onChange } = this.props;
+    this.setState({ selectedTOD: meridiem }, () => {
+      onChange(this.getSelectedValue());
+    });
   }
   renderFooter() {
     const { footerComponent } = this.props;
@@ -60,17 +91,19 @@ class TimePicker extends Component {
   }
   render12HourSelector() {
     const { selectedTOD } = this.state;
+    const { use24Hour } = this.props;
+    if (use24Hour) return '';
     return (
       <div className={cx('dz-timepicker-footer')}>
         <RadioButton
           label={'AM'}
           checked={selectedTOD === 'AM'}
-          onCheckChange={() => this.setState({ selectedTOD: 'AM' })}
+          onCheckChange={() => this.changeMeridiem('AM')}
         />
         <RadioButton
           label={'PM'}
           checked={selectedTOD === 'PM'}
-          onCheckChange={() => this.setState({ selectedTOD: 'PM' })}
+          onCheckChange={() => this.changeMeridiem('PM')}
         />
       </div>
     );
@@ -81,33 +114,96 @@ class TimePicker extends Component {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
   }
   renderSec() {
-    const { defaultSecondStep } = this.props;
+    const { showHeaders, defaultSecondStep, secEnabled } = this.props;
+    if (!secEnabled) return '';
+
     let items = [];
     for (let i = 0; i < 60; i = i + defaultSecondStep) {
-      items.push(<li>{this.pad(i, 2)}</li>);
+      let val = this.pad(i, 2);
+      items.push(
+        <li key={`sec-${val}`} onClick={() => this.changeSec(val)}>
+          {val}
+        </li>
+      );
     }
-    return items;
+    return (
+      <div className={cx('dz-timepicker-column')}>
+        <ul>
+          {showHeaders ? (
+            <li className={cx('dz-timepicker-list-header')}>Sec</li>
+          ) : (
+            ''
+          )}
+          {items}
+        </ul>
+      </div>
+    );
   }
 
   renderHrs() {
-    const { defaultHourStep } = this.props;
+    const { showHeaders, defaultHourStep, use24Hour, hrsEnabled } = this.props;
+    if (!hrsEnabled) return '';
     let items = [];
-    for (let i = 0; i < 60; i = i + defaultHourStep) {
-      items.push(<li>{this.pad(i, 2)}</li>);
+    if (use24Hour) {
+      for (let i = 0; i < 24; i = i + defaultHourStep) {
+        let val = this.pad(i, 2);
+        items.push(
+          <li key={`hrs-${val}`} onClick={() => this.changeHour(val)}>
+            {val}
+          </li>
+        );
+      }
+    } else {
+      for (let i = 1; i < 13; i = i + defaultHourStep) {
+        let val = this.pad(i, 2);
+        items.push(
+          <li key={`hrs-${val}`} onClick={() => this.changeHour(val)}>
+            {val}
+          </li>
+        );
+      }
     }
-    return items;
+    return (
+      <div className={cx('dz-timepicker-column')}>
+        <ul>
+          {showHeaders ? (
+            <li className={cx('dz-timepicker-list-header')}>Hrs</li>
+          ) : (
+            ''
+          )}
+          {items}
+        </ul>
+      </div>
+    );
   }
 
   renderMin() {
-    const { defaultMinuteStep } = this.props;
+    const { showHeaders, defaultMinuteStep, minEnabled } = this.props;
+    if (!minEnabled) return '';
     let items = [];
     for (let i = 0; i < 60; i = i + defaultMinuteStep) {
-      items.push(<li>{this.pad(i, 2)}</li>);
+      let val = this.pad(i, 2);
+      items.push(
+        <li key={`min-${val}`} onClick={() => this.changeMin(val)}>
+          {val}
+        </li>
+      );
     }
-    return items;
+    return (
+      <div className={cx('dz-timepicker-column')}>
+        <ul>
+          {showHeaders ? (
+            <li className={cx('dz-timepicker-list-header')}>Min</li>
+          ) : (
+            ''
+          )}
+          {items}
+        </ul>
+      </div>
+    );
   }
   render() {
-    const { className, showHeaders } = this.props;
+    const { className } = this.props;
     const { open } = this.state;
     return (
       <div
@@ -115,7 +211,9 @@ class TimePicker extends Component {
         onClick={() => this.setState({ open: true })}
       >
         <div className={cx('dz-input-control', 'dz-timepicker-input')}>
-          <span className={cx('dz-timepicker-value')}>13:30:22 PM</span>
+          <span className={cx('dz-timepicker-value')}>
+            {this.getSelectedValue().format(this.props.format)}
+          </span>
           <span
             className={cx('dz-timepicker-close')}
             onClick={() => this.setState({ open: false })}
@@ -125,36 +223,9 @@ class TimePicker extends Component {
         </div>
         <div className={cx('dz-timepicker-content', { visible: open })}>
           <div className={cx('dz-timepicker-content-inner')}>
-            <div className={cx('dz-timepicker-column')}>
-              <ul>
-                {showHeaders ? (
-                  <li className={cx('dz-timepicker-list-header')}>Hrs</li>
-                ) : (
-                  ''
-                )}
-                {this.renderHrs()}
-              </ul>
-            </div>
-            <div className={cx('dz-timepicker-column')}>
-              <ul>
-                {showHeaders ? (
-                  <li className={cx('dz-timepicker-list-header')}>Min</li>
-                ) : (
-                  ''
-                )}
-                {this.renderMin()}
-              </ul>
-            </div>
-            <div className={cx('dz-timepicker-column')}>
-              <ul>
-                {showHeaders ? (
-                  <li className={cx('dz-timepicker-list-header')}>Sec</li>
-                ) : (
-                  ''
-                )}
-                {this.renderSec()}
-              </ul>
-            </div>
+            {this.renderHrs()}
+            {this.renderMin()}
+            {this.renderSec()}
           </div>
           {this.render12HourSelector()}
           {this.renderFooter()}
