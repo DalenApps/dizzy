@@ -6,54 +6,52 @@ class Table extends Component {
   static propTypes = {
     className: PropTypes.string,
     responsive: PropTypes.bool,
-    headers: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string,
-        label: PropTypes.string
-      })
-    ).isRequired,
-    rows: PropTypes.array.isRequired,
-    keyField: PropTypes.string.isRequired
+    striped: PropTypes.bool,
+    condensed: PropTypes.bool,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired,
+    caption: PropTypes.string,
+    captionPosition: PropTypes.oneOf(['top', 'bottom'])
   };
   static defaultProps = {
     className: '',
     responsive: false,
-    headers: [],
-    rows: []
+    striped: false,
+    condensed: false,
+    caption: null,
+    captionPosition: 'top'
   };
 
-  renderHeaders() {
-    const { headers } = this.props;
-    return headers.map(header => {
-      return (
-        <th key={header.key} onClick={() => this.sortByColumn(header.key)}>
-          {header.label}
-        </th>
-      );
-    });
-  }
-
-  renderRowColumns(row) {
-    const { headers, keyField } = this.props;
-    return headers.map(header => {
-      return <td key={`${keyField}-${header.key}`}>{row[header.key]}</td>;
-    });
-  }
-  renderRows() {
-    const { rows, keyField } = this.props;
-    return rows.map(row => {
-      return <tr key={row[keyField]}>{this.renderRowColumns(row)}</tr>;
-    });
-  }
-
   renderTable() {
-    const { className } = this.props;
+    const {
+      children,
+      striped,
+      condensed,
+      caption,
+      captionPosition
+    } = this.props;
     return (
-      <table className={cx('dz-table', className)}>
-        <thead>
-          <tr>{this.renderHeaders()}</tr>
-        </thead>
-        <tbody>{this.renderRows()}</tbody>
+      <table
+        className={cx(
+          'dz-table',
+          { 'dz-table-striped': striped },
+          { 'dz-table-condensed': condensed }
+        )}
+      >
+        {caption !== null ? (
+          <caption
+            className={cx({
+              'dz-table-caption-bottom': captionPosition === 'bottom'
+            })}
+          >
+            {caption}
+          </caption>
+        ) : (
+          ''
+        )}
+        {children}
       </table>
     );
   }

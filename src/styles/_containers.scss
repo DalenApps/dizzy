@@ -1,9 +1,12 @@
-.dz-container-fluid {
+.dz-container-fluid,
+.dz-container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  font-family: $fontfamOxy;
 }
 .dz-container {
   @each $size, $break in $breakpoints {
