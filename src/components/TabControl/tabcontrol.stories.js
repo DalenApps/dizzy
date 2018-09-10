@@ -15,6 +15,33 @@ storiesOf('TabControl', module)
       <TabPane>This is my tab 1</TabPane>
     </TabControl>
   ))
-  .add('Tabs Bottom', () => <TabControl tabPosition="bottom" />)
-  .add('Tabs Left', () => <TabControl tabPosition="left" />)
-  .add('Tabs Right', () => <TabControl tabPosition="right" />);
+  .add('Tabs Bottom', () => (
+    <TabControl tabPosition="bottom">
+      <TabNav>
+        <TabNavItem />
+        <TabNavItem />
+      </TabNav>
+      <TabPane>This is my tab</TabPane>
+      <TabPane>This is my tab 1</TabPane>
+    </TabControl>
+  ))
+  .add('Tabs Left', () => (
+    <TabControl tabPosition="left">
+      <TabNav>
+        <TabNavItem />
+        <TabNavItem />
+      </TabNav>
+      <TabPane>This is my tab</TabPane>
+      <TabPane>This is my tab 1</TabPane>
+    </TabControl>
+  ))
+  .add('Tabs Right', () => (
+    <TabControl tabPosition="right">
+      <TabNav>
+        <TabNavItem />
+        <TabNavItem />
+      </TabNav>
+      <TabPane>This is my tab</TabPane>
+      <TabPane>This is my tab 1</TabPane>
+    </TabControl>
+  ));
