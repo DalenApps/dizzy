@@ -27,7 +27,8 @@ class Button extends Component {
     outlined: PropTypes.bool,
     noStyle: PropTypes.bool,
     rounded: PropTypes.bool,
-    iconOnly: PropTypes.bool
+    iconOnly: PropTypes.bool,
+    loading: PropTypes.bool
   };
   static defaultProps = {
     className: '',
@@ -37,7 +38,8 @@ class Button extends Component {
     outlined: false,
     noStyle: false,
     rounded: false,
-    iconOnly: false
+    iconOnly: false,
+    loading: false
   };
 
   render() {
@@ -50,15 +52,17 @@ class Button extends Component {
       noStyle,
       rounded,
       size,
-      iconOnly
+      iconOnly,
+      loading
     } = this.props;
     const styleClasses = cx(
-      { [`dz-button-${variant}`]: !outlined && !noStyle },
-      { [`dz-button-outline-${variant}`]: outlined && !noStyle },
+      { [`dz-button-${variant}`]: !outlined && !noStyle && !loading },
+      { [`dz-button-outline-${variant}`]: outlined && !noStyle && !loading },
       { 'dz-button-link': noStyle },
       { 'dz-button-rounded': rounded },
       { [`dz-button-${size}`]: size !== 'normal' },
-      { 'dz-icon-only': iconOnly }
+      { 'dz-icon-only': iconOnly || loading },
+      { 'dz-button-loading': loading }
     );
     if (href) {
       return (
@@ -67,9 +71,19 @@ class Button extends Component {
         </a>
       );
     }
+    /*  The way FontAwesome handles replacing i tags with svg's
+        is not compatible with how React removes dom nodes. Therefor
+        we wrap the tag in a span tag.
+    */
     return (
       <button className={cx('dz-button', styleClasses, className)}>
-        {children}
+        {loading ? (
+          <span>
+            <i className="fas fa-spinner fa-pulse" />
+          </span>
+        ) : (
+          children
+        )}
       </button>
     );
   }

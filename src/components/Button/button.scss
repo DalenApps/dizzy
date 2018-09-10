@@ -50,6 +50,13 @@
       text-decoration: underline;
     }
   }
+  &.dz-button-loading{
+    background-color: lighten($color: $muted, $amount: 20%);
+    color: $white;
+    &:hover{
+      cursor: wait;
+    }
+  }
   @each $color,
   $value in $theme-colors {
     @include button-outline-variant(".dz-button-outline-#{$color}", $value);
