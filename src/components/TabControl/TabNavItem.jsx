@@ -5,7 +5,7 @@ class TabNavItem extends Component {
   static propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
-    controlsPane: PropTypes.string.isRequired,
+    controlsPane: PropTypes.string,
     tabChangeRequested: PropTypes.func, // Internal
     activePane: PropTypes.string // Internal
   };
