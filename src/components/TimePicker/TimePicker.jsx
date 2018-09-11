@@ -3,6 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { RadioButton } from '../..';
 import moment from 'moment';
+/* eslint no-magic-numbers: ["error", { "ignore": [1,2,12,23,59] }] */
 class TimePicker extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -34,9 +35,7 @@ class TimePicker extends Component {
     format: 'h:mm:ss A',
     value: null,
     showHeaders: true,
-    onChange: mot => {
-      console.log(mot);
-    },
+    onChange: null,
     hrsEnabled: true,
     minEnabled: true,
     secEnabled: true
@@ -54,7 +53,7 @@ class TimePicker extends Component {
 
   getSelectedValue() {
     const { selectedHrs, selectedMin, selectedSec, selectedTOD } = this.state;
-    const { format } = this.props;
+    const { format, value, defaultValue } = this.props;
     const value = `${selectedHrs}:${selectedMin}:${selectedSec} ${selectedTOD}`;
     return moment(value, format);
   }
@@ -109,7 +108,9 @@ class TimePicker extends Component {
     );
   }
   toggleOpen() {
+    const { disabled } = this.props;
     const { open } = this.state;
+    if (disabled) return;
     this.setState({ open: !open });
   }
   pad(n, width, z) {
@@ -122,7 +123,7 @@ class TimePicker extends Component {
     if (!secEnabled) return '';
 
     let items = [];
-    for (let i = 0; i < 60; i = i + defaultSecondStep) {
+    for (let i = 0; i <= 59; i = i + defaultSecondStep) {
       let val = this.pad(i, 2);
       items.push(
         <li key={`sec-${val}`} onClick={() => this.changeSec(val)}>
@@ -149,7 +150,7 @@ class TimePicker extends Component {
     if (!hrsEnabled) return '';
     let items = [];
     if (use24Hour) {
-      for (let i = 0; i < 24; i = i + defaultHourStep) {
+      for (let i = 0; i <= 23; i = i + defaultHourStep) {
         let val = this.pad(i, 2);
         items.push(
           <li key={`hrs-${val}`} onClick={() => this.changeHour(val)}>
@@ -158,7 +159,7 @@ class TimePicker extends Component {
         );
       }
     } else {
-      for (let i = 1; i < 13; i = i + defaultHourStep) {
+      for (let i = 1; i <= 12; i = i + defaultHourStep) {
         let val = this.pad(i, 2);
         items.push(
           <li key={`hrs-${val}`} onClick={() => this.changeHour(val)}>
@@ -185,7 +186,7 @@ class TimePicker extends Component {
     const { showHeaders, defaultMinuteStep, minEnabled } = this.props;
     if (!minEnabled) return '';
     let items = [];
-    for (let i = 0; i < 60; i = i + defaultMinuteStep) {
+    for (let i = 0; i <= 59; i = i + defaultMinuteStep) {
       let val = this.pad(i, 2);
       items.push(
         <li key={`min-${val}`} onClick={() => this.changeMin(val)}>
@@ -207,10 +208,14 @@ class TimePicker extends Component {
     );
   }
   render() {
-    const { className } = this.props;
+    const { className, disabled } = this.props;
     const { open } = this.state;
     const iconClass = cx('fas', { 'fa-times': open }, { 'fa-clock': !open });
-    const containerClass = cx('dz-timepicker', className);
+    const containerClass = cx(
+      'dz-timepicker',
+      { 'dz-timepicker-disabled': disabled },
+      className
+    );
     const inputClass = cx('dz-input-control', 'dz-timepicker-input');
     const togglerClass = cx('dz-timepicker-close');
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { TimePicker, Badge } from '../../';
 const footer = <Badge className="dz-badge-primary">Custom footer</Badge>;
 storiesOf('TimePicker', module).add('Default', () => (
@@ -17,5 +18,6 @@ storiesOf('TimePicker', module).add('Default', () => (
     hrsEnabled={boolean('hrsEnabled', true)}
     minEnabled={boolean('minEnabled', true)}
     secEnabled={boolean('secEnabled', true)}
+    onChange={() => action('onChange')}
   />
 ));

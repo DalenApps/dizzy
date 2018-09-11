@@ -9,13 +9,12 @@
     align-items: center;
     .dz-timepicker-close {
       color: $muted;
-      :hover{
+      :hover {
         cursor: pointer;
         color: $danger;
       }
     }
   }
-
   .dz-timepicker-content {
     position: absolute;
     background-color: $white;
@@ -48,10 +47,10 @@
           padding: 0 0 62px 0;
           margin: 0;
           width: 100%;
-          .dz-timepicker-list-header{
+          .dz-timepicker-list-header {
             background-color: $background;
             font-size: small;
-            font-weight: bold;           
+            font-weight: bold;
           }
           li {
             text-align: left;
@@ -74,6 +73,18 @@
       justify-content: center;
       display: flex;
       border-top: 1px solid $borders;
+    }
+  }
+  &.dz-timepicker-disabled {
+    .dz-timepicker-input {
+      background-color: $background;
+      .dz-timepicker-close {
+        color: $muted;
+        :hover {
+          cursor: unset;
+          color: $muted;
+        }
+      }
     }
   }
 }
