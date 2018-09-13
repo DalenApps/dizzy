@@ -6,7 +6,9 @@ import {
   NavMenu,
   NavItem,
   BrandImage,
-  NavUserItem
+  NavUserItem,
+  NavUserDropdown,
+  NavUserDropdownItem
 } from '../../';
 const logo = 'http://placehold.it/100x50';
 storiesOf('NavBar', module)
@@ -45,6 +47,10 @@ storiesOf('NavBar', module)
         <NavItem>Contact</NavItem>
         <NavUserItem avatar={'https://placehold.it/100x100'}>
           Dizzy Admin
+          <NavUserDropdown>
+            <NavUserDropdownItem label="Profile" icon="user" />
+            <NavUserDropdownItem label="Sign out" icon="sign-out-alt" />
+          </NavUserDropdown>
         </NavUserItem>
       </NavMenu>
     </NavBar>

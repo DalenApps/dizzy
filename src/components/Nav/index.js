@@ -4,4 +4,6 @@ export { default as BrandImage } from './BrandImage.jsx';
 export { default as NavItem } from './NavItem.jsx';
 export { default as NavMenu } from './NavMenu.jsx';
 export { default as NavUserItem } from './NavUserItem.jsx';
-export {default as MobileExpander} from './MobileExpander.jsx';
+export { default as NavUserDropdown } from './NavUserDropdown.jsx';
+export { default as NavUserDropdownItem } from './NavUserDropdownItem.jsx';
+export { default as MobileExpander } from './MobileExpander.jsx';

@@ -10,21 +10,29 @@ class NavUserItem extends Component {
       PropTypes.node
     ]).isRequired,
     component: PropTypes.oneOf(['a', 'div']),
-    avatar: PropTypes.string
+    avatar: PropTypes.string,
+    showAvatar: PropTypes.bool
   };
   static defaultProps = {
     className: '',
     component: 'a',
-    avatar: null
+    avatar: null,
+    showAvatar: true
   };
 
   render() {
-    const { children, className, avatar, component: Component } = this.props;
+    const {
+      children,
+      className,
+      avatar,
+      showAvatar,
+      component: Component
+    } = this.props;
     return (
       <Component
         className={cx('dz-navbar-menu-item', 'dz-user-item', className)}
       >
-        <Image img={avatar} />
+        {avatar != null && showAvatar ? <Image img={avatar} /> : ''}
         {children}
       </Component>
     );
