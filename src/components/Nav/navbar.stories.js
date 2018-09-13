@@ -8,7 +8,7 @@ import {
   BrandImage,
   NavUserItem
 } from '../../';
-import logo from '../../logo-blue.png';
+const logo = 'http://placehold.it/100x50';
 storiesOf('NavBar', module)
   .add('Brand Name', () => (
     <NavBar>
