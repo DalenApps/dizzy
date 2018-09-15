@@ -236,7 +236,8 @@ class TimePicker extends Component {
   render() {
     const { className, disabled } = this.props;
     const { open } = this.state;
-    const iconClass = cx('fas', { 'fa-times': open }, { 'fa-clock': !open });
+    const icon = open ? 'fa-times' : 'fa-clock';
+    const iconClass = cx('fas', icon);
     const containerClass = cx(
       'dz-timepicker',
       { 'dz-timepicker-disabled': disabled },
