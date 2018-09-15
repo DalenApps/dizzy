@@ -1,0 +1,42 @@
+.dz-sidemenu {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  background-color: $white;
+  border-bottom: 2px solid $borders;
+  display: inline-block;
+  a {
+    color: $dark;
+    text-decoration: none;
+    &:visited,
+    &:link {
+      color: inherit;
+    }
+  }
+
+  .dz-sidemenu-sub {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: $dark;
+      padding-left: 15px;
+      .dz-sidemenu-item {
+        margin: 5px 0px;
+        &.selected {
+          border-left: 3px solid transparent;
+          color: $primary;
+        }
+      }
+    }
+  }
+  .dz-sidemenu-item {
+    margin: 10px 0px;
+    padding-left: 10px;
+    border-left: 3px solid transparent;
+    &.selected {
+      border-left: 3px solid $primary;
+      color: $primary;
+    }
+  }
+}
