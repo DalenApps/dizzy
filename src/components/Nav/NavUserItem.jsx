@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { Image } from '../../';
-import NavUserDropdown from './NavUserDropdown';
+import { Image, NavUserDropdown } from '../../';
 class NavUserItem extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -29,7 +28,7 @@ class NavUserItem extends Component {
   renderAndPassPropsToChildren() {
     const { children } = this.props;
     return React.Children.map(children, child => {
-      if (child.type == NavUserDropdown) {
+      if (child.type === NavUserDropdown) {
         return React.cloneElement(child, {
           open: this.state.open
         });
@@ -37,6 +36,7 @@ class NavUserItem extends Component {
       return React.cloneElement(child);
     });
   }
+
   toggle() {
     this.setState({
       open: !this.state.open
