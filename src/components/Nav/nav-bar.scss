@@ -12,8 +12,7 @@
     height: 100%;
     width: 100%;
 
-    @each $size,
-    $break in $breakpoints {
+    @each $size, $break in $breakpoints {
       @media (min-width: $break) {
         max-width: map-get($container-max-widths, $size);
       }
@@ -23,8 +22,7 @@
   background-color: $white;
   color: $primary;
   height: 3.875rem;
-  font-family: 'Lato',
-  sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 2.5rem;
   justify-content: space-between;
@@ -97,16 +95,9 @@
         margin-left: auto;
         position: relative;
 
-        &:hover {
-          img {
-            border-color: colorFromBackground($primary);
-          }
-        }
-
         img {
           height: 40px;
           border-radius: 50%;
-          border: 2px solid $primary;
           margin-right: 5px;
         }
 
@@ -115,18 +106,26 @@
             display: none;
           }
         }
+        i,
+        svg {
+          margin-left: 5px;
+        }
       }
     }
 
     .dz-navbar-user-dropdown {
       width: 100%;
       background-color: $white;
-      display: flex;
+      display: none;
       flex-direction: column;
       box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.26);
       position: absolute;
       top: 62px;
       text-align: left;
+
+      &.visible {
+        display: flex !important;
+      }
 
       .dz-navbar-user-dropdown-item {
         padding: 10px 20px;

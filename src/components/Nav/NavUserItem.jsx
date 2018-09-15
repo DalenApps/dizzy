@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Image } from '../../';
+import NavUserDropdown from './NavUserDropdown';
 class NavUserItem extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -19,21 +20,38 @@ class NavUserItem extends Component {
     avatar: null,
     showAvatar: true
   };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+  }
+  renderAndPassPropsToChildren() {
+    const { children } = this.props;
+    return React.Children.map(children, child => {
+      if (child.type == NavUserDropdown) {
+        return React.cloneElement(child, {
+          open: this.state.open
+        });
+      }
+      return React.cloneElement(child);
+    });
+  }
+  toggle() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
   render() {
-    const {
-      children,
-      className,
-      avatar,
-      showAvatar,
-      component: Component
-    } = this.props;
+    const { className, avatar, showAvatar, component: Component } = this.props;
     return (
       <Component
         className={cx('dz-navbar-menu-item', 'dz-user-item', className)}
+        onClick={() => this.toggle()}
       >
         {avatar != null && showAvatar ? <Image img={avatar} /> : ''}
-        {children}
+        {this.renderAndPassPropsToChildren()}
+        <i className="fas fa-caret-down" />
       </Component>
     );
   }

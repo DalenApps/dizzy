@@ -46,7 +46,7 @@ storiesOf('NavBar', module)
         <NavItem active={true}>About</NavItem>
         <NavItem>Contact</NavItem>
         <NavUserItem avatar={'https://placehold.it/100x100'}>
-          Dizzy Admin
+          <React.Fragment>Dizzy Admin</React.Fragment>
           <NavUserDropdown>
             <NavUserDropdownItem label="Profile" icon="user" />
             <NavUserDropdownItem label="Sign out" icon="sign-out-alt" />
@@ -65,7 +65,7 @@ storiesOf('NavBar', module)
         <NavItem active={true}>About</NavItem>
         <NavItem>Contact</NavItem>
         <NavUserItem avatar={'https://placehold.it/100x100'}>
-          Dizzy Admin
+          <React.Fragment>Dizzy Admin</React.Fragment>
         </NavUserItem>
       </NavMenu>
     </NavBar>

@@ -8,16 +8,22 @@ class NavUserDropdown extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]).isRequired
+    ]).isRequired,
+    open: PropTypes.bool
   };
   static defaultProps = {
-    className: ''
+    className: '',
+    open: false
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, open } = this.props;
     return (
-      <div className={cx('dz-navbar-user-dropdown', className)}>{children}</div>
+      <div
+        className={cx('dz-navbar-user-dropdown', { visible: open }, className)}
+      >
+        {children}
+      </div>
     );
   }
 }
