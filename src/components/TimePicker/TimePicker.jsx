@@ -8,8 +8,7 @@ class TimePicker extends Component {
   static propTypes = {
     className: PropTypes.string,
     closeOnFocusLost: PropTypes.bool,
-    footerComponent: PropTypes.node,
-    defaultValue: PropTypes.instanceOf(moment),
+    footerComponent: PropTypes.func,
     disabled: PropTypes.bool,
     format: PropTypes.string,
     defaultHourStep: PropTypes.number,
@@ -42,19 +41,46 @@ class TimePicker extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = {
-      open: true,
-      selectedHrs: '00',
-      selectedMin: '00',
-      selectedSec: '00',
-      selectedTOD: 'AM'
-    };
+    if (props.value) {
+      this.state = {
+        open: true,
+        selectedHrs: props.value.hour(),
+        selectedMin: props.value.minute(),
+        selectedSec: props.value.second(),
+        selectedTOD: props.value.format('A')
+      };
+    } else {
+      this.state = {
+        open: true,
+        selectedHrs: '00',
+        selectedMin: '00',
+        selectedSec: '00',
+        selectedTOD: 'AM'
+      };
+    }
   }
 
   getSelectedValue() {
-    const { selectedHrs, selectedMin, selectedSec, selectedTOD } = this.state;
-    const { format, value, defaultValue } = this.props;
-    const value = `${selectedHrs}:${selectedMin}:${selectedSec} ${selectedTOD}`;
+    const {
+      selectedHrs,
+      selectedMin,
+      selectedSec,
+      selectedTOD
+    } = this.state;
+    const {
+      hrsEnabled,
+      minEnabled,
+      secEnabled,
+      use24Hour
+    } = this.props;
+    const { format } = this.props;
+    let value = '';
+    if (hrsEnabled) {
+      value = value + `${selectedHrs}:`;
+    }
+    if (minEnabled) value = value + `${selectedMin}:`;
+    if (secEnabled) value = value + `${selectedSec}`;
+    if (!use24Hour) value = value + ` ${selectedTOD}`;
     return moment(value, format);
   }
   changeHour(hrs) {
@@ -228,7 +254,11 @@ class TimePicker extends Component {
             <i className={iconClass} />
           </span>
         </div>
-        <div className={cx('dz-timepicker-content', { visible: open })}>
+        <div
+          className={cx('dz-timepicker-content', {
+            visible: open && !disabled
+          })}
+        >
           <div className={cx('dz-timepicker-content-inner')}>
             {this.renderHrs()}
             {this.renderMin()}
