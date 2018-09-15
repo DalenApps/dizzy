@@ -19,6 +19,7 @@ class Image extends Component {
   };
 
   render() {
+    /* eslint-disable no-unused-vars */
     const {
       className,
       children,
@@ -26,6 +27,8 @@ class Image extends Component {
       responsive,
       rounded,
       img,
+      overlayContainerClass,
+      overlayClass,
       ...rest
     } = this.props;
     if (withOverlay) {
