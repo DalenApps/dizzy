@@ -42,7 +42,7 @@ class Button extends Component {
     rounded: false,
     iconOnly: false,
     loading: false,
-    disabled: true
+    disabled: false
   };
   click() {
     const { onClick, disabled, loading } = this.props;
