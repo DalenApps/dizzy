@@ -28,7 +28,9 @@ class Button extends Component {
     noStyle: PropTypes.bool,
     rounded: PropTypes.bool,
     iconOnly: PropTypes.bool,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func
   };
   static defaultProps = {
     className: '',
@@ -39,9 +41,14 @@ class Button extends Component {
     noStyle: false,
     rounded: false,
     iconOnly: false,
-    loading: false
+    loading: false,
+    disabled: true
   };
-
+  click() {
+    const { onClick, disabled, loading } = this.props;
+    if (disabled || loading) return;
+    onClick();
+  }
   render() {
     const {
       href,
@@ -53,7 +60,8 @@ class Button extends Component {
       rounded,
       size,
       iconOnly,
-      loading
+      loading,
+      disabled
     } = this.props;
     const styleClasses = cx(
       { [`dz-button-${variant}`]: !outlined && !noStyle && !loading },
@@ -76,7 +84,11 @@ class Button extends Component {
         we wrap the tag in a span tag.
     */
     return (
-      <button className={cx('dz-button', styleClasses, className)}>
+      <button
+        className={cx('dz-button', styleClasses, className)}
+        onClick={() => this.click()}
+        disabled={disabled}
+      >
         {loading ? (
           <span>
             <i className="fas fa-spinner fa-pulse" />
