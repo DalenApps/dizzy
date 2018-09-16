@@ -31,32 +31,26 @@ class Image extends Component {
       overlayClass,
       ...rest
     } = this.props;
+    const containerClassO = cx(
+      'dz-image-container',
+      { 'dz-image-responsive': responsive },
+      { 'dz-image-rounded': rounded }
+    );
+    const containerClass = cx(
+      'dz-image',
+      { 'dz-image-responsive': responsive },
+      { 'dz-image-rounded': rounded },
+      className
+    );
     if (withOverlay) {
       return (
-        <div
-          className={cx(
-            'dz-image-container',
-            { 'dz-image-responsive': responsive },
-            { 'dz-image-rounded': rounded }
-          )}
-        >
+        <div className={containerClassO}>
           <img src={img} className="dz-image" {...rest} />
           <div className="dz-image-overlay">{children}</div>
         </div>
       );
     }
-    return (
-      <img
-        className={cx(
-          'dz-image',
-          { 'dz-image-responsive': responsive },
-          { 'dz-image-rounded': rounded },
-          className
-        )}
-        {...rest}
-        src={img}
-      />
-    );
+    return <img className={containerClass} {...rest} src={img} />;
   }
 }
 

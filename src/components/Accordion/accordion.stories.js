@@ -14,7 +14,7 @@ storiesOf('Accordion', module)
   ))
   .add('Stacked', () => (
     <div>
-      <Accordion className="dz-accordion-bordered dz-accordion-purple">
+      <Accordion bordered variant="purple">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -22,7 +22,7 @@ storiesOf('Accordion', module)
           aliquip ex ea commodo consequat.
         </p>
       </Accordion>
-      <Accordion className="dz-accordion-filled dz-accordion-primary">
+      <Accordion filled variant="primary">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -41,7 +41,7 @@ storiesOf('Accordion', module)
     </div>
   ))
   .add('Condensed', () => (
-    <Accordion className="dz-accordion-condensed">
+    <Accordion condensed>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

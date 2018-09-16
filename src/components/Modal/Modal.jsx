@@ -23,7 +23,7 @@ class Modal extends Component {
     if (closeOnBackdropClick) onClose();
   }
   render() {
-    const { className, children, showOn, onClose } = this.props;
+    const { className, children, showOn } = this.props;
     return (
       <div
         className={cx('dz-modal', { 'dz-modal-show': showOn }, className)}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 class CardBody extends Component {
   static propTypes = {
@@ -13,7 +14,8 @@ class CardBody extends Component {
   };
   render() {
     const { className, children } = this.props;
-    return <div className={`dz-card-body ${className}`}>{children}</div>;
+    const contentClass = cx('dz-card-body', className);
+    return <div className={contentClass}>{children}</div>;
   }
 }
 

@@ -4,7 +4,7 @@ import { Grid, GridItem } from '../../';
 storiesOf('Grid', module)
   .add('Default', () => (
     <Grid>
-      <GridItem small={2} medium={12} large={4} xlarge={4}>
+      <GridItem>
         Column 1
       </GridItem>
       <GridItem small={8}>Column 2</GridItem>

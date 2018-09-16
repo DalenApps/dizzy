@@ -15,19 +15,19 @@ class GridItem extends Component {
   };
   static defaultProps = {
     className: '',
-    small: 12,
-    medium: 12,
-    large: 12,
-    xlarge: 12
+    small: null,
+    medium: null,
+    large: null,
+    xlarge: null
   };
 
   render() {
     const { className, children, small, medium, large, xlarge } = this.props;
     const gridSizeClasses = cx(
-      `dz-grid-item-small-${small}`,
-      `dz-grid-item-medium-${medium}`,
-      `dz-grid-item-large-${large}`,
-      `dz-grid-item-xlarge-${xlarge}`
+      { [`dz-grid-item-small-${small}`]: small !== null },
+      { [`dz-grid-item-small-${medium}`]: medium !== null },
+      { [`dz-grid-item-small-${large}`]: large !== null },
+      { [`dz-grid-item-small-${xlarge}`]: xlarge !== null }
     );
 
     return (
