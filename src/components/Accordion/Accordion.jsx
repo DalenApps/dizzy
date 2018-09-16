@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { variantProps } from '../../helpers/props-helper';
 class Accordion extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -9,12 +10,22 @@ class Accordion extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]).isRequired
+    ]).isRequired,
+    variant: variantProps,
+    bordered: PropTypes.bool,
+    filled: PropTypes.bool,
+    condensed: PropTypes.bool,
+    title: PropTypes.string
   };
   static defaultProps = {
     className: '',
     triggerClassName: '',
-    contentClassName: ''
+    contentClassName: '',
+    variant: null,
+    bordered: false,
+    filled: false,
+    condensed: false,
+    title: 'Open'
   };
 
   constructor(props) {
@@ -23,38 +34,48 @@ class Accordion extends Component {
       isToggled: false
     };
   }
+  toggle() {
+    const { isToggled } = this.state;
+    this.setState({ isToggled: !isToggled });
+  }
   render() {
     const {
       className,
       triggerClassName,
       contentClassName,
+      filled,
+      bordered,
+      variant,
+      condensed,
+      title,
       children
     } = this.props;
     const { isToggled } = this.state;
-
+    const containerClass = cx(
+      'dz-accordion-container',
+      { 'dz-accordion-filled': filled },
+      { 'dz-accordion-bordered': bordered },
+      { 'dz-accordion-condensed': condensed },
+      { [`dz-accordion-${variant}`]: variant },
+      className
+    );
+    const triggerClass = cx('dz-accordion-trigger', triggerClassName);
+    const caretClass = cx(
+      { 'dz-caret-down': !isToggled },
+      { 'dz-caret-up': isToggled }
+    );
+    const contentClass = cx(
+      'dz-accordion-content',
+      { 'dz-show': isToggled },
+      contentClassName
+    );
     return (
-      <div className={cx('dz-accordion-container', className)}>
-        <div
-          className={cx('dz-accordion-trigger', triggerClassName)}
-          onClick={() => this.setState({ isToggled: !this.state.isToggled })}
-        >
-          Open
-          <span
-            className={cx(
-              { 'dz-caret-down': !isToggled },
-              { 'dz-caret-up': isToggled }
-            )}
-          />
+      <div className={containerClass}>
+        <div className={triggerClass} onClick={() => this.toggle()}>
+          {title}
+          <span className={caretClass} />
         </div>
-        <div
-          className={cx(
-            'dz-accordion-content',
-            { 'dz-show': isToggled },
-            contentClassName
-          )}
-        >
-          {children}
-        </div>
+        <div className={contentClass}>{children}</div>
       </div>
     );
   }

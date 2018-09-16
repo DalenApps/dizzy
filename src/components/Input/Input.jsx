@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 
 class Input extends Component {
@@ -10,12 +11,9 @@ class Input extends Component {
   };
 
   render() {
-    const { className } = this.props;
-    return (
-      <input
-        className={`dz-input-control dz-input ${className ? className : ''}`}
-      />
-    );
+    const { className, ...rest } = this.props;
+    const containerClass = cx('dz-input-control', 'dz-input', className);
+    return <input className={containerClass} {...rest} />;
   }
 }
 

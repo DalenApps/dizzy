@@ -20,6 +20,7 @@ class BadgeAddon extends Component {
     return (
       <span
         className={cx(
+          'dz-badge-success-addon',
           className,
           { 'badge-addon-left': direction === 'left' },
           { 'badge-addon-right': direction === 'right' }

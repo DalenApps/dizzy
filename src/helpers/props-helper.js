@@ -11,3 +11,17 @@ export const directionProps = PropTypes.oneOf([
   'bottom',
   'left'
 ]);
+
+export const variantProps = PropTypes.oneOf([
+  'primary',
+  'darkblue',
+  'lightblue',
+  'muted',
+  'blue',
+  'dark',
+  'success',
+  'danger',
+  'warning',
+  'purple',
+  'white'
+]);

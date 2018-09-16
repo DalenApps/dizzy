@@ -1,12 +1,24 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Badge, BadgeAddon } from '../../';
-
+const variants = [
+  'primary',
+  'darkblue',
+  'lightblue',
+  'muted',
+  'blue',
+  'dark',
+  'success',
+  'danger',
+  'warning',
+  'purple',
+  'white'
+];
 storiesOf('Badge', module)
-  .add('Default', () => <Badge className={'dz-badge-primary'}>New</Badge>)
+  .add('Default', () => <Badge>New</Badge>)
   .add('With addon', () => (
-    <Badge className={'dz-badge-dark'}>
-      <BadgeAddon className={'dz-badge-success-addon'}>
+    <Badge variant={'dark'}>
+      <BadgeAddon>
         <i className="fab fa-npm" />
       </BadgeAddon>
       npm install -s @dalenapps/dizzy
@@ -14,16 +26,12 @@ storiesOf('Badge', module)
   ))
   .add('Colors', () => (
     <div>
-      <Badge className={'dz-badge-darkblue'}>Dark blue</Badge>
-      <Badge className={'dz-badge-lightblue'}>Light Blue</Badge>
-      <Badge className={'dz-badge-muted'}>Muted</Badge>
-      <Badge className={'dz-badge-blue'}>Blue</Badge>
-      <Badge className={'dz-badge-primary'}>Primary</Badge>
-      <Badge className={'dz-badge-dark'}>Dark</Badge>
-      <Badge className={'dz-badge-success'}>Success</Badge>
-      <Badge className={'dz-badge-danger'}>Danger</Badge>
-      <Badge className={'dz-badge-warning'}>Warning</Badge>
-      <Badge className={'dz-badge-purple'}>Purple</Badge>
-      <Badge className={'dz-badge-white'}>White</Badge>
+      {variants.map(type => {
+        return (
+          <Badge key={type} variant={type}>
+            {type}
+          </Badge>
+        );
+      })}
     </div>
   ));

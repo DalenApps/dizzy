@@ -36,7 +36,7 @@ storiesOf('Card', module)
     <Card>
       <CardHeader title="Header">
         <CardTools>
-          <Button className="dz-button-success">Action</Button>
+          <Button variant="success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -46,7 +46,7 @@ storiesOf('Card', module)
     <Card>
       <CardHeader title="Header">
         <CardTools>
-          <Button className="dz-button-success">Action</Button>
+          <Button variant="success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -59,10 +59,10 @@ storiesOf('Card', module)
     </Card>
   ))
   .add('With colored top', () => (
-    <Card className="dz-card-bordered dz-card-primary">
+    <Card bordered variant="primary">
       <CardHeader title="Header">
         <CardTools>
-          <Button className="dz-button-success">Action</Button>
+          <Button variant="success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
@@ -75,10 +75,10 @@ storiesOf('Card', module)
     </Card>
   ))
   .add('Filled header', () => (
-    <Card className="dz-card-filled dz-card-primary">
+    <Card filled variant="primary">
       <CardHeader title="Header">
         <CardTools>
-          <Button className="dz-button-success">Action</Button>
+          <Button variant="success">Action</Button>
         </CardTools>
       </CardHeader>
       {demoBody}
