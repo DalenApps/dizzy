@@ -25,9 +25,9 @@ class GridItem extends Component {
     const { className, children, small, medium, large, xlarge } = this.props;
     const gridSizeClasses = cx(
       { [`dz-grid-item-small-${small}`]: small !== null },
-      { [`dz-grid-item-small-${medium}`]: medium !== null },
-      { [`dz-grid-item-small-${large}`]: large !== null },
-      { [`dz-grid-item-small-${xlarge}`]: xlarge !== null }
+      { [`dz-grid-item-medium-${medium}`]: medium !== null },
+      { [`dz-grid-item-large-${large}`]: large !== null },
+      { [`dz-grid-item-xlarge-${xlarge}`]: xlarge !== null }
     );
 
     return (
