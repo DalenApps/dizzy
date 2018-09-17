@@ -4,16 +4,33 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    size: PropTypes.oneOf(['small', 'default'])
   };
   static defaultProps = {
-    className: ''
+    className: '',
+    disabled: false,
+    size: 'default'
   };
 
   render() {
-    const { className, ...rest } = this.props;
-    const containerClass = cx('dz-input-control', 'dz-input', className);
-    return <input className={containerClass} {...rest} />;
+    const { className, disabled, onChange, size, ...rest } = this.props;
+    const containerClass = cx(
+      'dz-input-control',
+      'dz-input',
+      { 'dz-input-control-small': size === 'small' },
+      className
+    );
+    return (
+      <input
+        className={containerClass}
+        disabled={disabled}
+        onChange={e => onChange(e)}
+        {...rest}
+      />
+    );
   }
 }
 
