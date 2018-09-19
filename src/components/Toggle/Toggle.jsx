@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { variantProps } from '../../helpers';
 class Toggle extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -10,7 +11,8 @@ class Toggle extends Component {
     onText: PropTypes.string,
     offText: PropTypes.string,
     onCheckChange: PropTypes.func.isRequired,
-    size: PropTypes.oneOf(['small', 'normal'])
+    size: PropTypes.oneOf(['small', 'normal']),
+    variant: variantProps
   };
   static defaultProps = {
     className: '',
@@ -18,6 +20,7 @@ class Toggle extends Component {
     rounded: false,
     onText: 'ON',
     offText: 'OFF',
+    variant: 'primary',
     size: 'normal'
   };
   _onChange() {
@@ -32,12 +35,14 @@ class Toggle extends Component {
       offText,
       size,
       rounded,
+      variant,
       className
     } = this.props;
     const labelClass = cx(
       'dz-toggle-container',
       { 'dz-toggle-large': size === 'large' },
       { 'dz-toggle-rounded': rounded },
+      [`dz-toggle-${variant}`],
       className
     );
     if (withLabels) {
@@ -58,7 +63,7 @@ class Toggle extends Component {
       );
     }
     return (
-      <label className={cx('dz-toggle-container', className)}>
+      <label className={labelClass}>
         <input
           type="checkbox"
           className={cx('dz-toggle')}

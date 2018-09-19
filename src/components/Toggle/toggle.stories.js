@@ -53,7 +53,7 @@ storiesOf('Toggle', module)
             key={color}
             checked={boolean(color.toUpperCase(), true)}
             onCheckChange={checked => console.log(checked)}
-            className={`dz-toggle-${color}`}
+            variant={color}
           />
         );
       })}
