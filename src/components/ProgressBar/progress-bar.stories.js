@@ -5,22 +5,14 @@ storiesOf('ProgressBar', module)
   .add('Default', () => (
     <ProgressBar completed={77} className="dz-progress-purple" />
   ))
-  .add('Striped', () => (
-    <ProgressBar
-      completed={77}
-      className="dz-progress-striped dz-progress-purple"
-    />
-  ))
+  .add('Striped', () => <ProgressBar completed={77} striped variant="purple" />)
   .add('Animated', () => (
-    <ProgressBar
-      completed={77}
-      className="dz-progress-striped dz-progress-animated dz-progress-purple"
-    />
+    <ProgressBar completed={77} striped animated variant="purple" />
   ))
   .add('With title', () => (
     <ProgressBar
       completed={77}
-      className="dz-progress-success"
+      variant="success"
       title={'Downloading asset files..'}
     />
   ));
