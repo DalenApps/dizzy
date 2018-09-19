@@ -35,14 +35,14 @@ storiesOf('Toggle', module)
   .add('Sizes', () => (
     <div style={{ backgroundColor: 'white', display: 'inline-flex' }}>
       <Toggle checked={boolean('Small', true)} />
-      <Toggle className={'dz-toggle-large'} checked={boolean('Large', true)} />
+      <Toggle size="large" checked={boolean('Large', true)} />
     </div>
   ))
   .add('Rounded', () => (
     <Toggle
       checked={boolean('Checked', false)}
       onCheckChange={checked => console.log(checked)}
-      className={'dz-toggle-rounded'}
+      rounded
     />
   ))
   .add('Colors', () => (
