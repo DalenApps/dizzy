@@ -22,7 +22,7 @@ storiesOf('CheckBox', module)
       label="default"
       checked={boolean('Checked', false)}
       onCheckChange={checked => console.log(checked)}
-      className="dz-checkbox-purple"
+      variant="purple"
     />
   ))
   .add('Colors', () => (
@@ -34,7 +34,7 @@ storiesOf('CheckBox', module)
             label={color}
             checked={true}
             onCheckChange={checked => console.log(checked)}
-            className={`dz-checkbox-${color}`}
+            variant={color}
           />
         );
       })}
