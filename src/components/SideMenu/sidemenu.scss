@@ -1,0 +1,59 @@
+.dz-sidemenu {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  background-color: $white;
+  border-bottom: 2px solid $borders;
+  display: inline-block;
+  a,
+  .dz-sidemenu-item {
+    color: $dark;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  a {
+    &:visited,
+    &:link {
+      color: inherit;
+    }
+  }
+
+  .dz-sidemenu-sub {
+    &-title {
+      i,
+      svg {
+        margin-left: 5px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    &-container {
+      display: block;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      padding-left: 15px;
+      .dz-sidemenu-item {
+        margin: 5px 0px;
+        &.selected {
+          border-left: 3px solid transparent;
+          color: $primary;
+        }
+      }
+      &.collapsed {
+        display: none !important;
+      }
+    }
+  }
+  .dz-sidemenu-item {
+    margin: 10px 0px;
+    padding-left: 10px;
+    border-left: 3px solid transparent;
+    &.selected {
+      border-left: 3px solid $primary;
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+}
