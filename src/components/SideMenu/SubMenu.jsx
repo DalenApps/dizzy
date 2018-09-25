@@ -9,15 +9,22 @@ class SubMenu extends Component {
     children: childProps,
     title: PropTypes.string,
     collapsible: PropTypes.bool,
-    collapsed: PropTypes.bool
+    defaultCollapsed: PropTypes.bool
   };
   static defaultProps = {
     className: '',
     containerComponent: 'ul',
     title: 'SubMenu',
     collapsible: false,
-    collapsed: true
+    defaultCollapsed: false
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: props.defaultCollapsed
+    };
+  }
   hasActiveChild() {
     const { children } = this.props;
     let hasActive = false;
@@ -27,6 +34,24 @@ class SubMenu extends Component {
     });
     return hasActive;
   }
+
+  getCaret() {
+    const { collapsible } = this.props;
+    const { collapsed } = this.state;
+    if (!collapsible) return '';
+    if (collapsed) {
+      return <i className="fas fa-caret-down" />;
+    } else {
+      return <i className="fas fa-caret-up" />;
+    }
+  }
+  toggleCollapsed() {
+    const { collapsed } = this.state;
+    this.setState({
+      collapsed: !collapsed
+    });
+  }
+
   render() {
     const {
       className,
@@ -34,14 +59,25 @@ class SubMenu extends Component {
       containerComponent: ContainerComponent,
       title
     } = this.props;
-    const OuterComponent = ContainerComponent === 'div' ? 'div' : 'li';
-    const outerClasses = cx('dz-sidemenu-sub', className);
-    const linkClasses = cx('dz-sidemenu-item', { selected: active });
+    const { collapsed } = this.state;
     const active = this.hasActiveChild();
+    const outerClasses = cx('dz-sidemenu-sub', className);
+    const containerClass = cx('dz-sidemenu-sub-container', {
+      collapsed: collapsed
+    });
+    const titleClass = cx('dz-sidemenu-item', 'dz-sidemenu-sub-title', {
+      selected: active
+    });
+    const OuterComponent = ContainerComponent === 'div' ? 'div' : 'li';
     return (
       <OuterComponent className={outerClasses}>
-        <div className={linkClasses}>{title}</div>
-        <ContainerComponent>{children}</ContainerComponent>
+        <div className={titleClass} onClick={() => this.toggleCollapsed()}>
+          {title}
+          {this.getCaret()}
+        </div>
+        <ContainerComponent className={containerClass}>
+          {children}
+        </ContainerComponent>
       </OuterComponent>
     );
   }
