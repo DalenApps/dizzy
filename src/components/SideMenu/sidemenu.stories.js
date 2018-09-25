@@ -1,13 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { SideMenu, MenuItem, SubMenu } from '../../';
+import { action } from '@storybook/addon-actions';
 storiesOf('SideMenu', module)
   .add('Default', () => (
     <SideMenu>
-      <MenuItem className="selected">Branding</MenuItem>
-      <SubMenu title="Access Management" selected>
-        <MenuItem>Users</MenuItem>
-        <MenuItem className="selected">Roles</MenuItem>
+      <MenuItem>Branding</MenuItem>
+      <SubMenu title="Access Management">
+        <MenuItem onClick={action('click')} active>Users</MenuItem>
+        <MenuItem>Roles</MenuItem>
         <MenuItem>Permissions</MenuItem>
       </SubMenu>
     </SideMenu>

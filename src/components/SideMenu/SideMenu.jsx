@@ -5,16 +5,16 @@ import { childProps } from '../../helpers';
 class SideMenu extends Component {
   static propTypes = {
     className: PropTypes.string,
-    component: PropTypes.oneOf(['div', 'ul']),
+    containerComponent: PropTypes.oneOf(['div', 'ul']),
     children: childProps
   };
   static defaultProps = {
     className: '',
-    component: 'ul'
+    containerComponent: 'ul'
   };
 
   render() {
-    const { className, children, component: Component } = this.props;
+    const { className, children, containerComponent: Component } = this.props;
     return (
       <Component className={cx('dz-sidemenu', className)}>{children}</Component>
     );

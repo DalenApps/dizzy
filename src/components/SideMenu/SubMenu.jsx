@@ -6,31 +6,41 @@ class SubMenu extends Component {
   static propTypes = {
     className: PropTypes.string,
     containerComponent: PropTypes.oneOf(['div', 'ul']),
-    linkComponent: PropTypes.oneOf(['a', PropTypes.node]),
     children: childProps,
-    title: PropTypes.string
+    title: PropTypes.string,
+    collapsible: PropTypes.bool,
+    collapsed: PropTypes.bool
   };
   static defaultProps = {
     className: '',
     containerComponent: 'ul',
-    linkComponent: 'a',
-    title: 'SubMenu'
+    title: 'SubMenu',
+    collapsible: false,
+    collapsed: true
   };
-
+  hasActiveChild() {
+    const { children } = this.props;
+    let hasActive = false;
+    React.Children.map(children, child => {
+      const { active } = child.props;
+      if (active) hasActive = true;
+    });
+    return hasActive;
+  }
   render() {
     const {
       className,
       children,
       containerComponent: ContainerComponent,
-      linkComponent: LinkComponent,
       title
     } = this.props;
-    const OuterComponent = Component === 'div' ? 'div' : 'li';
+    const OuterComponent = ContainerComponent === 'div' ? 'div' : 'li';
+    const outerClasses = cx('dz-sidemenu-sub', className);
+    const linkClasses = cx('dz-sidemenu-item', { selected: active });
+    const active = this.hasActiveChild();
     return (
-      <OuterComponent className={cx('dz-sidemenu-sub', className)}>
-        <LinkComponent className="dz-sidemenu-item selected">
-          {title}
-        </LinkComponent>
+      <OuterComponent className={outerClasses}>
+        <div className={linkClasses}>{title}</div>
         <ContainerComponent>{children}</ContainerComponent>
       </OuterComponent>
     );

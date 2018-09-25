@@ -8,26 +8,45 @@ class MenuItem extends Component {
     containerComponent: PropTypes.oneOf(['div', 'li']),
     linkComponent: PropTypes.oneOf(['a', PropTypes.node]),
     linksTo: PropTypes.string,
-    children: childProps
+    children: childProps,
+    active: PropTypes.bool,
+    onClick: PropTypes.func
   };
   static defaultProps = {
     className: '',
     linkComponent: 'a',
     containerComponent: 'li',
-    linksTo: '#'
+    linksTo: '#',
+    active: false,
+    onClick: null
   };
 
+  linkClicked(e) {
+    const { onClick } = this.props;
+    if (onClick !== null) {
+      e.preventDefault();
+      onClick();
+    }
+  }
   render() {
     const {
       className,
       children,
       containerComponent: ContainerComponent,
       linkComponent: LinkComponent,
-      linksTo
+      linksTo,
+      active
     } = this.props;
+    const containerClass = cx(
+      'dz-sidemenu-item',
+      { selected: active },
+      className
+    );
     return (
-      <ContainerComponent className={cx('dz-sidemenu-item', className)}>
-        <LinkComponent href={linksTo}>{children}</LinkComponent>
+      <ContainerComponent className={containerClass}>
+        <LinkComponent href={linksTo} onClick={e => this.linkClicked(e)}>
+          {children}
+        </LinkComponent>
       </ContainerComponent>
     );
   }
