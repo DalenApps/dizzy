@@ -3,35 +3,48 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 class Modal extends Component {
   static propTypes = {
-    className: PropTypes.string,
+    backdropClassName: PropTypes.string,
+    contentClassName: PropTypes.string,
     showOn: PropTypes.bool,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]).isRequired,
     onClose: PropTypes.func,
-    closeOnBackdropClick: PropTypes.bool
+    closeOnBackdropClick: PropTypes.bool,
+    centered: PropTypes.bool
   };
   static defaultProps = {
-    className: '',
+    backdropClassName: '',
+    contentClassName: '',
     showOn: false,
-    closeOnBackdropClick: false
+    closeOnBackdropClick: false,
+    centered: true
   };
 
   backdropClicked() {
     const { closeOnBackdropClick, onClose } = this.props;
     if (closeOnBackdropClick) onClose();
   }
+
   render() {
-    const { className, children, showOn } = this.props;
+    const {
+      backdropClassName,
+      contentClassName,
+      children,
+      showOn,
+      centered
+    } = this.props;
+    const backdropClass = cx(
+      'dz-modal',
+      { 'dz-modal-show': showOn },
+      { 'dz-modal-centered': centered },
+      backdropClassName
+    );
+    const contentClass = cx('dz-modal-content', contentClassName);
     return (
-      <div
-        className={cx('dz-modal', { 'dz-modal-show': showOn }, className)}
-        onClick={() => this.backdropClicked()}
-      >
-        <div className={cx('dz-modal-content')}>
-          {children}
-        </div>
+      <div className={backdropClass} onClick={() => this.backdropClicked()}>
+        <div className={contentClass}>{children}</div>
       </div>
     );
   }
