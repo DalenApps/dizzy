@@ -21,30 +21,34 @@ class DataTable extends Component {
     rows: PropTypes.array.isRequired,
     keyField: PropTypes.string.isRequired,
     multiSelect: PropTypes.bool,
+    selectedRows: PropTypes.array,
     onSelect: PropTypes.func,
-    selectedRows: PropTypes.array
+    onHeaderSelect: PropTypes.func
   };
   static defaultProps = {
     className: '',
     headers: [],
     rows: [],
     multiSelect: false,
-    selectedRows: []
+    selectedRows: [],
+    onHeaderSelect: null
   };
 
   rowHeaderStateChanged() {
-    const { selectedRows } = this.props;
+    const { selectedRows, onHeaderSelect } = this.props;
+    // eslint-disable-next-line no-magic-numbers
     if (selectedRows.lenght == 0) {
-      return true; // Check all
+      onHeaderSelect(true); // Check all
     } else {
-      return false; // Uncheck all
+      onHeaderSelect(false); // Uncheck all
     }
   }
   rowSelectedStateChanged(row) {
-    return {
+    const { onSelect } = this.props;
+    onSelect({
       checked: !this.isSelected(row),
       row: row
-    };
+    });
   }
 
   renderHeaders(headers) {
@@ -66,6 +70,7 @@ class DataTable extends Component {
       );
     });
   }
+  // eslint-disable-next-line no-magic-numbers
   isSelected = row => this.props.selectedRows.indexOf(row) !== -1;
   renderRows(headers, rows, keyField) {
     const { multiSelect } = this.props;
@@ -90,15 +95,29 @@ class DataTable extends Component {
   }
 
   render() {
-    const { headers, rows, keyField, multiSelect, ...rest } = this.props;
+    /* eslint no-unused-vars: 0 */
+    const {
+      headers,
+      rows,
+      keyField,
+      multiSelect,
+      selectedRows,
+      onSelect,
+      onHeaderSelect,
+      ...rest
+    } = this.props;
     const headerCells = this.renderHeaders(headers);
     const selectHeaderCell = (
-      <TableCell key={'sss'} className={cx('dz-table-tool-col')}>
-        <CheckBox
-          label=""
-          checked={true}
-          onCheckChange={() => this.rowHeaderStateChanged()}
-        />
+      <TableCell key={''} className={cx('dz-table-tool-col')}>
+        {onHeaderSelect !== null ? (
+          <CheckBox
+            label=""
+            checked={true}
+            onCheckChange={() => this.rowHeaderStateChanged()}
+          />
+        ) : (
+          ''
+        )}
       </TableCell>
     );
     return (
