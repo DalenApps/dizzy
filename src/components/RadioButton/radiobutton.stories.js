@@ -28,7 +28,7 @@ storiesOf('RadioButton', module)
             name={color}
             checked={true}
             onCheckChange={checked => console.log(checked)}
-            className={`dz-radiobutton-${color}`}
+            variant={color}
           />
         );
       })}
