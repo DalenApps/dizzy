@@ -17,12 +17,9 @@ class Badge extends Component {
     variant: 'primary'
   };
   render() {
-    const { className, children } = this.props;
-    return (
-      <span className={cx('dz-badge', [`dz-badge-${variant}`], className)}>
-        {children}
-      </span>
-    );
+    const { className, children, variant } = this.props;
+    const containerClass = cx('dz-badge', [`dz-badge-${variant}`], className);
+    return <span className={containerClass}>{children}</span>;
   }
 }
 
