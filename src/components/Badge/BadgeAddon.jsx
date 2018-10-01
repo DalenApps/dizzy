@@ -17,18 +17,12 @@ class BadgeAddon extends Component {
   };
   render() {
     const { className, direction, children } = this.props;
-    return (
-      <span
-        className={cx(
-          'dz-badge-success-addon',
-          className,
-          { 'badge-addon-left': direction === 'left' },
-          { 'badge-addon-right': direction === 'right' }
-        )}
-      >
-        {children}
-      </span>
+    const containerClass = cx(
+      'dz-badge-success-addon',
+      [`badge-addon-${direction}`],
+      className
     );
+    return <span className={containerClass}>{children}</span>;
   }
 }
 
