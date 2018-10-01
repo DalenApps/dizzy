@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, action } from '@storybook/react';
 import { DataTable } from '../../';
 
 let headers = [
@@ -13,6 +13,19 @@ let rows = [
   { id: 3, firstname: 'Joe', lastname: 'Swanson', savings: '$300' },
   { id: 4, firstname: 'Cleveland', lastname: 'Brown', savings: '$250' }
 ];
-storiesOf('DataTable', module).add('Default', () => (
-  <DataTable headers={headers} rows={rows} keyField="id" />
-));
+storiesOf('DataTable', module)
+  .add('Default', () => (
+    <DataTable headers={headers} rows={rows} keyField="id" />
+  ))
+  .add('Multi Select', () => (
+    <DataTable
+      headers={headers}
+      rows={rows}
+      multiSelect
+      onSelect={action('onSelect')}
+      onHeaderSelect={action('onHeaderSelect')}
+      // eslint-disable-next-line no-magic-numbers
+      selectedRows={[rows[1], rows[3]]}
+      keyField="id"
+    />
+  ));
