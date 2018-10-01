@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: $white;
+  height: 100%;
 
   &.dz-tab-control-left {
     flex-direction: row;
@@ -122,6 +123,7 @@
     animation: opacityIn 0.4s;
     order: 2;
     flex-grow: 1;
+    height: 100%;
 
     &.active {
       display: block;
