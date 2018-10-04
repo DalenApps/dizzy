@@ -1,0 +1,47 @@
+.dz-dropdown {
+  display: inline-block;
+
+  .dz-dropdown-title {
+    @extend .dz-button;
+    @extend .dz-button-purple;
+    padding: 0.4rem 0.5rem;
+    text-align: left;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+
+    i,
+    svg {
+      margin-left: 5px;
+    }
+
+    &-display {
+      flex-grow: 1;
+    }
+  }
+
+  &-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+
+    &:hover {
+      background-color: $background;
+      cursor: pointer;
+    }
+  }
+
+  &-menu {
+    display: none;
+    background: $white;
+    border-radius: 5px;
+    border: 2px solid $borders;
+    width: 100%;
+    font-size: 0.875rem;
+    border-width: 0.125rem;
+    box-sizing: border-box;
+
+    &-open {
+      display: block !important;
+    }
+  }
+}

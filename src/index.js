@@ -9,6 +9,7 @@ export * from './components/CheckBox';
 export * from './components/CheckBoxList';
 export * from './components/DataTable';
 export * from './components/Divider';
+export * from './components/Dropdown';
 export * from './components/Grid';
 export * from './components/IconSelect';
 export * from './components/Image';
