@@ -2,17 +2,15 @@
   display: inline-block;
 
   .dz-dropdown-title {
-    @extend .dz-button;
-    @extend .dz-button-purple;
+    display: inline-block;
     padding: 0.4rem 0.5rem;
     text-align: left;
-    display: flex;
-    width: 100%;
     box-sizing: border-box;
+    align-items: center;
 
     i,
     svg {
-      margin-left: 5px;
+      margin-left: 0.625rem;
     }
 
     &-display {
@@ -28,20 +26,26 @@
       background-color: $background;
       cursor: pointer;
     }
+    i,
+    svg {
+      margin-right: 0.3125rem;
+    }
   }
 
   &-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: none;
     background: $white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     border: 2px solid $borders;
-    width: 100%;
     font-size: 0.875rem;
     border-width: 0.125rem;
     box-sizing: border-box;
 
     &-open {
-      display: block !important;
+      display: block;
     }
   }
 }

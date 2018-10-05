@@ -5,15 +5,21 @@ import { childProps } from '../../helpers/props-helper';
 class DropdownItem extends Component {
   static propTypes = {
     className: PropTypes.string,
-    children: childProps
+    children: childProps,
+    onClick: PropTypes.func.isRequired
   };
   static defaultProps = {
     className: ''
   };
 
   render() {
-    const { className, children } = this.props;
-    return <div className={cx('dz-dropdown-item', className)}>{children}</div>;
+    const { className, onClick, children } = this.props;
+    const contentClass = cx('dz-dropdown-item', className);
+    return (
+      <li className={contentClass} onClick={() => onClick()}>
+        {children}
+      </li>
+    );
   }
 }
 
