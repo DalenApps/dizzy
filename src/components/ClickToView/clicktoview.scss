@@ -1,0 +1,21 @@
+.dz-click-to-view {
+  .activator {
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .dz-click-to-view-content {
+    display: none;
+
+    &.visible {
+      display: inline-block;
+    }
+  }
+}
