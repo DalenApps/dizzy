@@ -1,0 +1,20 @@
+.dz-click-to-view {
+  .activator {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .dz-click-to-view-content {
+    display: none;
+
+    &.visible {
+      display: inline-block;
+    }
+  }
+}

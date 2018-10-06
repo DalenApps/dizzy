@@ -7,6 +7,7 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/CheckBox';
 export * from './components/CheckBoxList';
+export * from './components/ClickToView';
 export * from './components/DataTable';
 export * from './components/Divider';
 export * from './components/Dropdown';
