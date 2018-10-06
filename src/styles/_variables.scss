@@ -1,4 +1,5 @@
 $background: #f0f0f1 !default;
+$darkbackground: #f3f4f5 !default;
 $darkmuted: #5a6872 !default;
 $borders: #dfe3e6 !default;
 $brand-bitbucket: #205081 !default;
@@ -15,6 +16,8 @@ $danger: #fb617f !default;
 $warning: #feb64d !default;
 $purple: #9661e2 !default;
 $white: #ffffff !default;
+$disabled: lighten($muted, 10%);
+
 
 $fontfamOxy: 'Oxygen', sans-serif;
 $base-text-display-size: 0.875rem;
