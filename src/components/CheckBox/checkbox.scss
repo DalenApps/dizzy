@@ -39,10 +39,12 @@
     content: '';
     position: absolute;
     display: none;
+    box-sizing: initial;
   }
 
   input:checked ~ .dz-checkmark:after {
     display: block;
+    box-sizing: initial;
   }
 
   .dz-checkmark:after {
@@ -53,6 +55,7 @@
     border: solid $white;
     border-width: 0 0.125rem 0.125rem 0;
     transform: rotate(45deg);
+    box-sizing: initial;
   }
   @each $color, $value in $theme-colors {
     @include checkbox-variant('.dz-checkbox-#{$color}', $value);

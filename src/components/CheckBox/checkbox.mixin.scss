@@ -5,6 +5,7 @@
     }
     .dz-checkmark:after {
       border-color: colorFromBackground($color) !important;
+      box-sizing: initial;
     }
   }
 }
