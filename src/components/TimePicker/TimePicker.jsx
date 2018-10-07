@@ -58,21 +58,34 @@ class TimePicker extends Component {
         selectedTOD: 'AM'
       };
     }
+    this.wrapperRef = null;
+  }
+  componentDidMount() {
+    const { closeOnFocusLost } = this.props;
+    if (closeOnFocusLost) {
+      document.addEventListener('mousedown', e => this._handleClickOutside(e));
+    }
   }
 
+  componentWillUnmount() {
+    const { closeOnFocusLost } = this.props;
+    if (closeOnFocusLost) {
+      document.removeEventListener('mousedown', e =>
+        this._handleClickOutside(e)
+      );
+    }
+  }
+  _handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({ open: false });
+    }
+  }
+  _setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
   getSelectedValue() {
-    const {
-      selectedHrs,
-      selectedMin,
-      selectedSec,
-      selectedTOD
-    } = this.state;
-    const {
-      hrsEnabled,
-      minEnabled,
-      secEnabled,
-      use24Hour
-    } = this.props;
+    const { selectedHrs, selectedMin, selectedSec, selectedTOD } = this.state;
+    const { hrsEnabled, minEnabled, secEnabled, use24Hour } = this.props;
     const { format } = this.props;
     let value = '';
     if (hrsEnabled) {
@@ -246,7 +259,11 @@ class TimePicker extends Component {
     const inputClass = cx('dz-input-control', 'dz-timepicker-input');
     const togglerClass = cx('dz-timepicker-close');
     return (
-      <div className={containerClass} onClick={() => this.toggleOpen()}>
+      <div
+        className={containerClass}
+        onClick={() => this.toggleOpen()}
+        ref={node => this._setWrapperRef(node)}
+      >
         <div className={inputClass}>
           <span className={cx('dz-timepicker-value')}>
             {this.getSelectedValue().format(this.props.format)}

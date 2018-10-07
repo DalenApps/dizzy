@@ -8,13 +8,13 @@ import moment from 'moment';
 const footer = <Badge className="dz-badge-primary">Custom footer</Badge>;
 storiesOf('TimePicker', module)
   .add('Default', () => (
-    <TimePicker onChange={() => action('onChange')} value={moment()} />
+    <TimePicker onChange={action('onChange')} value={moment()} />
   ))
   .add('24 hour', () => (
     <TimePicker
       use24Hour={boolean('use24Hour', false)}
       format={text('format', 'hh:mm:ss')}
-      onChange={() => action('onChange')}
+      onChange={action('onChange')}
       value={moment()}
     />
   ))
@@ -32,7 +32,7 @@ storiesOf('TimePicker', module)
       hrsEnabled={boolean('hrsEnabled', true)}
       minEnabled={boolean('minEnabled', true)}
       secEnabled={boolean('secEnabled', true)}
-      onChange={() => action('onChange')}
+      onChange={action('onChange')}
       value={moment()}
     />
   ));
