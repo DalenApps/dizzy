@@ -79,5 +79,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
 }
