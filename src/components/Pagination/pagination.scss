@@ -1,4 +1,4 @@
-.dz-paginator {
+/* .dz-paginator {
   width: 100%;
   background-color: $white;
   padding: 0.5rem 1rem;
@@ -26,6 +26,10 @@
     color: $muted;
     padding-right: 0.25rem;
     display: block;
+    // Customise select to better fit.
+    .dz-select-info {
+      min-height: 1rem;
+    }
   }
 
   .dz-paginator-pagepicker {
@@ -52,5 +56,36 @@
     border-right: 0;
     padding: 0 1rem;
     margin-left: 1rem;
+  }
+}
+ */
+.dz-paginator {
+  display: inline-flex;
+  align-items: center;
+  background-color: $white;
+  padding: 0 10px;
+  .dz-paginator-buttons-back,
+  .dz-paginator-buttons-forward {
+    padding: 5px;
+  }
+  .dz-paginator-buttons-back {
+    margin-right: 10px;
+  }
+  .dz-paginator-buttons-forward {
+    margin-left: 10px;
+    .dz-button {
+      padding-right: 0.2rem;
+    }
+    i,
+    svg {
+      margin-left: 0.3125rem;
+      margin-right: 0 !important;
+    }
+  }
+  .dz-button {
+    border-width: 1px;
+  }
+  span{
+    font-size: small;
   }
 }
