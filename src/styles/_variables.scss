@@ -18,7 +18,6 @@ $purple: #9661e2 !default;
 $white: #ffffff !default;
 $disabled: lighten($muted, 10%);
 
-
 $fontfamOxy: 'Oxygen', sans-serif;
 $base-text-display-size: 0.875rem;
 $base-text-input-size: 0.8125rem;
@@ -58,3 +57,8 @@ $container-max-widths: (
 $grid-column-count: 12;
 $grid-width: 100%;
 $grid-item-width: ($grid-width / $grid-column-count);
+
+$shadow-focus: inset 0 0 2px rgba($dark, 0.14), inset 0 0 0 1px $primary,
+  0 0 0 3px rgba($primary, 0.14);
+$shadow-focus-error: inset 0 0 2px rgba($dark, 0.14), inset 0 0 0 1px $danger,
+  0 0 0 3px rgba($danger, 0.14);

@@ -19,6 +19,12 @@
   }
   &.dz-input-disabled {
     cursor: not-allowed;
+    &:focus{
+      box-shadow: none;
+    }
+  }
+  &:focus {
+    box-shadow: $shadow-focus;
   }
 }
 
