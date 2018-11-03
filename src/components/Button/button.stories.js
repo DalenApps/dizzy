@@ -18,6 +18,11 @@ const btnTypes = [
 ];
 storiesOf('Button', module)
   .add('Default', () => <Button onClick={action('clicked')}>Add Text</Button>)
+  .add('Disabled', () => (
+    <Button disabled onClick={action('clicked')}>
+      Add Text
+    </Button>
+  ))
   .add('Normal with icon', () => (
     <Button onClick={action('clicked')}>
       <i className="fas fa-plus" />

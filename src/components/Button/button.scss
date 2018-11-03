@@ -18,7 +18,7 @@
   border-style: solid;
   margin: 0.125rem;
   text-align: center;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -49,20 +49,26 @@
       font-weight: bold;
       text-decoration: underline;
     }
+    &.dz-button-disabled {
+      text-decoration: none;
+      color: $disabled-action-color !important;
+      &:hover {
+        color: $disabled-action-color !important;
+        cursor: not-allowed;
+      }
+    }
   }
-  &.dz-button-loading{
+  &.dz-button-loading {
     background-color: lighten($color: $muted, $amount: 20%);
     color: $white;
-    &:hover{
+    &:hover {
       cursor: wait;
     }
   }
-  @each $color,
-  $value in $theme-colors {
-    @include button-outline-variant(".dz-button-outline-#{$color}", $value);
+  @each $color, $value in $theme-colors {
+    @include button-outline-variant('.dz-button-outline-#{$color}', $value);
   }
-  @each $color,
-  $value in $theme-colors {
-    @include button-variant(".dz-button-#{$color}", $value);
+  @each $color, $value in $theme-colors {
+    @include button-variant('.dz-button-#{$color}', $value);
   }
 }

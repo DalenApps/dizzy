@@ -70,11 +70,16 @@ class Button extends Component {
       { 'dz-button-rounded': rounded },
       { [`dz-button-${size}`]: size !== 'normal' },
       { 'dz-icon-only': iconOnly || loading },
-      { 'dz-button-loading': loading }
+      { 'dz-button-loading': loading },
+      { 'dz-button-disabled': disabled }
     );
     if (href) {
       return (
-        <a href={href} className={cx('dz-button', styleClasses, className)}>
+        <a
+          href={href}
+          className={cx('dz-button', styleClasses, className)}
+          disabled={disabled}
+        >
           {children}
         </a>
       );

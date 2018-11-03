@@ -1,9 +1,23 @@
-@mixin button-variant( $parent, $background, $backgroundHover: darken($background, 10%)) {
+@mixin button-variant(
+  $parent,
+  $background,
+  $backgroundHover: darken($background, 10%)
+) {
   &#{$parent} {
     background-color: $background !important;
     color: colorFromBackground($background) !important;
     &:hover {
       background-color: $backgroundHover !important;
+    }
+    &.dz-button-disabled {
+      text-decoration: none;
+      color: $disabled-action-color !important;
+      background-color: $disabled-action-background !important;
+      &:hover {
+        color: $disabled-action-color !important;
+        background-color: $disabled-action-background !important;
+        cursor: not-allowed;
+      }
     }
   }
 }
@@ -15,6 +29,17 @@
     &:hover {
       background-color: $background !important;
       color: colorFromBackground($background) !important;
+    }
+    &.dz-button-disabled {
+      text-decoration: none;
+      color: $disabled-action-color !important;
+      border-color: $disabled-action-color !important;
+      &:hover {
+        color: $disabled-action-color !important;
+        border-color: $disabled-action-color !important;
+        background-color: transparent !important;
+        cursor: not-allowed;
+      }
     }
   }
 }
