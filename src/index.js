@@ -14,6 +14,7 @@ export * from './components/Dropdown';
 export * from './components/Grid';
 export * from './components/IconSelect';
 export * from './components/Image';
+export * from './components/InputField';
 export * from './components/Input';
 export * from './components/InputGroup';
 export * from './components/InputLabel';
