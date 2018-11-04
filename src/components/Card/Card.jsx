@@ -11,21 +11,31 @@ class Card extends Component {
     ]).isRequired,
     variant: variantProps,
     bordered: PropTypes.bool,
-    filled: PropTypes.bool
+    filledHeader: PropTypes.bool,
+    filledFooter: PropTypes.bool
   };
   static defaultProps = {
     className: '',
     variant: 'white',
     bordered: false,
-    filled: false
+    filledHeader: false,
+    filledFooter: false
   };
   render() {
-    const { className,filled, variant, bordered, children } = this.props;
+    const {
+      className,
+      filledHeader,
+      filledFooter,
+      variant,
+      bordered,
+      children
+    } = this.props;
     const contentClass = cx(
       'dz-card',
       [`dz-card-${variant}`],
       { 'dz-card-bordered': bordered },
-      { 'dz-card-filled': filled },
+      { 'dz-card-filled-header': filledHeader },
+      { 'dz-card-filled-footer': filledFooter },
       className
     );
     return <div className={contentClass}>{children}</div>;

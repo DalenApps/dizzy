@@ -8,18 +8,20 @@
   .dz-card-body {
     padding: 1.25rem;
     min-height: 1.875rem;
+    font-size: $font-size;
   }
 
   .dz-card-header,
   .dz-card-footer {
     box-sizing: border-box;
-    min-height: 2.5rem;
-    padding: 0.25rem 1.25rem;
     display: flex;
     flex-direction: row;
+    display: flex;
+    background-color: $background-blue;
   }
 
   .dz-card-header {
+    padding: 1rem;
     justify-content: center;
     margin-bottom: 0;
     border-bottom: 0.0625rem solid $borders;
@@ -30,6 +32,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: -0.5rem;
       .button {
         margin: 0;
       }
@@ -43,6 +46,7 @@
   .dz-card-footer {
     border-top: 1px solid $borders;
     justify-content: flex-end;
+    padding: 0.5rem;
   }
 
   &.dz-card-bordered {
@@ -51,16 +55,21 @@
       border-top-right-radius: 4px;
     }
     @each $color, $value in $theme-colors {
-      @include card-bordered-variant(".dz-card-#{$color}", $value);
+      @include card-bordered-variant('.dz-card-#{$color}', $value);
     }
   }
-  &.dz-card-filled {
+  &.dz-card-filled-header {
     .dz-card-header {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
     }
     @each $color, $value in $theme-colors {
-      @include card-filled-variant(".dz-card-#{$color}", $value);
+      @include card-filled-header-variant('.dz-card-#{$color}', $value);
+    }
+  }
+  &.dz-card-filled-footer {
+    @each $color, $value in $theme-colors {
+      @include card-filled-footer-variant('.dz-card-#{$color}', $value);
     }
   }
 }

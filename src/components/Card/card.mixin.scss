@@ -6,9 +6,17 @@
   }
 }
 
-@mixin card-filled-variant($parent, $background) {
+@mixin card-filled-header-variant($parent, $background) {
   &#{$parent} {
     .dz-card-header {
+      background-color: $background;
+      color: colorFromBackground($background);
+    }
+  }
+}
+@mixin card-filled-footer-variant($parent, $background) {
+  &#{$parent} {
+    .dz-card-footer {
       background-color: $background;
       color: colorFromBackground($background);
     }

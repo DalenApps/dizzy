@@ -74,8 +74,8 @@ storiesOf('Card', module)
       </CardFooter>
     </Card>
   ))
-  .add('Filled header', () => (
-    <Card filled variant="primary">
+  .add('Filled header and footer', () => (
+    <Card filledHeader filledFooter variant="primary">
       <CardHeader title="Header">
         <CardTools>
           <Button variant="success">Action</Button>
@@ -83,7 +83,7 @@ storiesOf('Card', module)
       </CardHeader>
       {demoBody}
       <CardFooter>
-        <Button>
+        <Button variant="purple">
           <i className="fas fa-save" />
           Save
         </Button>
