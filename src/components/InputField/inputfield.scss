@@ -1,0 +1,58 @@
+.dz-input-field {
+  background: $white;
+  .dz-input-field-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    .dz-input-field-label {
+      display: flex;
+      font-size: $font-size;
+      font-weight: 700;
+      color: $darkmuted;
+    }
+    .dz-input-field-required {
+      color: $danger;
+      font-size: 10px;
+      align-self: flex-end;
+      font-weight: 400;
+    }
+  }
+  .dz-input-field-content {
+    .dz-input-control {
+      margin-bottom: 0;
+    }
+    .dz-input-field-help {
+      padding: 0;
+      color: $muted;
+      font-size: 10px;
+    }
+  }
+  &.success {
+    .dz-input-field-help {
+      color: $success;
+    }
+    .dz-input-control {
+      border-color: $success;
+      box-shadow: none;
+    }
+  }
+  &.danger {
+    .dz-input-field-help {
+      color: $danger;
+    }
+    .dz-input-control {
+      border-color: $danger;
+      box-shadow: none;
+    }
+  }
+  &.warning {
+    .dz-input-field-help {
+      color: $warning;
+    }
+    .dz-input-control {
+      border-color: $warning;
+      box-shadow: none;
+    }
+  }
+}
