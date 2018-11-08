@@ -29,6 +29,7 @@ export * from './components/ProgressBar';
 export * from './components/RadioButton';
 export * from './components/Select';
 export * from './components/SideMenu';
+export * from './components/SocialButton';
 export * from './components/StatusBox';
 export * from './components/Steps';
 export * from './components/TabControl';
