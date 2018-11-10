@@ -19,8 +19,8 @@ npm install --save @dalenapps/dizzy
 
 ```jsx
 import React, { Component } from 'react'
-
-import {Button} from '@dalenapps/dizzy'
+import './node_modules/@dalenapps/dizzy/dist/dizzy.css';
+import { Button } from '@dalenapps/dizzy'
 
 class Example extends Component {
   render () {
