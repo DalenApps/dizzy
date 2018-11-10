@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { Image, NavUserDropdown } from '../../';
+import { Image } from '../Image';
+import { NavUserDropdown } from './';
 class NavUserItem extends Component {
   static propTypes = {
     className: PropTypes.string,

@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {
-  CheckBox,
-  Table,
-  TableHead,
-  TableRow,
-  TableBody,
-  TableCell
-} from '../..';
+import { CheckBox } from '../CheckBox';
+import { Table, TableHead, TableRow, TableBody, TableCell } from '../Table';
 class DataTable extends Component {
   static propTypes = {
     className: PropTypes.string,

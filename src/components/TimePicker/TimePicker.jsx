@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { RadioButton } from '../..';
+import { RadioButton } from '../RadioButton';
 import moment from 'moment';
 /* eslint no-magic-numbers: ["error", { "ignore": [1,2,12,23,59] }] */
 class TimePicker extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { Button } from '../..';
+import { Button } from '../Button';
 import { variantProps } from '../../helpers';
 class Pagination extends Component {
   static propTypes = {

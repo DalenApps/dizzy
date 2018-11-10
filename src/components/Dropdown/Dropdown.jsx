@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { childProps } from '../../helpers/props-helper';
-import { Button } from '../../';
+import { Button } from '../Button';
 class Dropdown extends Component {
   static propTypes = {
     className: PropTypes.string,
