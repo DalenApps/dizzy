@@ -5,7 +5,7 @@
 [![NPM](https://img.shields.io/npm/v/@dalenapps/dizzy.svg)](https://www.npmjs.com/package/@dalenapps/dizzy) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
-# WORK IN PROGRESS
+# Work in progress
 This is currently under development.
 
 
@@ -20,12 +20,12 @@ npm install --save @dalenapps/dizzy
 ```jsx
 import React, { Component } from 'react'
 
-import {MyComponent} from '@dalenapps/dizzy'
+import {Button} from '@dalenapps/dizzy'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <Button />
     )
   }
 }
