@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Image } from '../Image';
-import { NavUserDropdown } from './NavUserDropdown';
+import  NavUserDropdown  from './NavUserDropdown.jsx';
 class NavUserItem extends Component {
   static propTypes = {
     className: PropTypes.string,
