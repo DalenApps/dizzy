@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { MobileExpander } from './MobileExpander';
+import MobileExpander  from './MobileExpander.jsx';
 class NavBar extends Component {
   static propTypes = {
     className: PropTypes.string,

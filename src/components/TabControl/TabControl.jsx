@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { childProps, directionProps } from '../../helpers';
-import { TabPane } from './TabPane';
+import  TabPane from './TabPane.jsx';
 class TabControl extends Component {
   static propTypes = {
     className: PropTypes.string,
