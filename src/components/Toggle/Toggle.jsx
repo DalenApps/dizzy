@@ -11,7 +11,7 @@ class Toggle extends Component {
     onText: PropTypes.string,
     offText: PropTypes.string,
     onCheckChange: PropTypes.func.isRequired,
-    size: PropTypes.oneOf(['small', 'normal']),
+    size: PropTypes.oneOf(['normal', 'large']),
     variant: variantProps
   };
   static defaultProps = {
